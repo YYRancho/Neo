@@ -13,11 +13,20 @@
 
 <body>
     <nav>
-        <a id="header-left" href="http://127.0.0.1:8000">
+        <a class="header-left" href={{home_url}}>
             Laboratory
         </a>
-        <a id="header-right">
+        <a id="header-about" class="header-right">
             About
+        </a>
+        <a class="header-right">
+            Links
+        </a>
+        <a class="header-right">
+            Archives
+        </a>
+        <a class="header-right">
+            Members
         </a>
     </nav>
     <header>
@@ -30,7 +39,33 @@
 
     <!-- Main Contetn -->
     <div class="post-preview">
-        <a href="http://127.0.0.1:8000">
+        <a href={{home_url}}>
+            <div class="post-preview-title">
+                The Matrix
+            </div>
+            <div class="post-preview-content">
+                The Matrix is a system, Neo. That system is our enemy. But when you're inside, you look around, what do you see? Business men, teachers, lawyers, carpenters. The very minds of the people we are trying to save. But until we do, these people are still a part of that system, and that makes them our enemy. You have to understand, most of these people are not ready to be unplugged. And many of them are so inured, so hopelessly dependent on the system, that they will fight to protect it. [Neo's attention is drawn to a passing attractive woman wearing a red dress] Were you listening to me, Neo, or were you looking at the woman in the red dress?
+            </div>
+        </a>
+        <div class="post-preview-date">
+            Posted on 2017-06-03
+        </div>
+        <hr />
+
+        <a href={{home_url}}>
+            <div class="post-preview-title">
+                The Matrix Reloaded
+            </div>
+            <div class="post-preview-content">
+                Your life is the sum of a remainder of an unbalanced equation inherent to the programming of the Matrix. You are the eventuality of an anomaly, which despite my sincerest efforts I have been unable to eliminate from what is otherwise a harmony of mathematical precision. While it remains a burden assiduously avoided, it is not unexpected, and thus not beyond a measure of control, which has led you, inexorably, here.
+            </div>
+        </a>
+        <div class="post-preview-date">
+            Posted on 2017-06-02
+        </div>
+        <hr />
+
+        <a href={{home_url}}>
             <div class="post-preview-title">
                 The Matrix Revolutions
             </div>
@@ -43,6 +78,12 @@
         </div>
         <hr />
     </div>
+
+    <!-- jQuery -->
+    <script src="../../static/js/vendors/jquery-3.2.1.js"></script>
+
+    <script src="../../static/js/home.js"></script>
+
 </body>
 
 </html>
