@@ -9,34 +9,6 @@ a:link {
 a,a>div:hover {
     color: #0085a1;
 }
-nav {
-    /*position: fixed;*/
-    width: 100%;
-    /*background-color: rgba(0, 0, 0, 0.5);*/
-}
-nav>a {
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 500;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-nav>a:hover {
-    color: rgba(255,255,255,0.8);
-}
-nav>a.header-left {
-    float: left;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-nav>a.header-right {
-    float: right;
-    padding-left: 1%;
-    padding-right: 1%;
-}
-nav>a#header-about {
-    padding-right: 2%;
-}
 header {
     color: #ffffff;
     background-image: url(../../static/images/wall.jpg); background-position: center center; background-size: cover;
@@ -64,17 +36,18 @@ div.post-preview-title {
 div.post-preview-content {
     margin-bottom: 10px;
     color: rgb(163, 163, 163);
-    font-size: 18px;
+    line-height: 1.3;
+    font-size: 16px;
     text-align: justify;
 }
 div.post-preview-date {
     font-family: "Segoe UI";
     font-size: 18px;
     font-weight: 400px;
-    color: rgb(128, 128, 128);
+    color: rgb(100, 100, 100);
 }
 hr {
     margin: 20px 0;
-    color: rgba(64, 64, 64);
+    border: 1px solid rgba(238, 238, 238, 1);
     opacity: 0.5;
 }

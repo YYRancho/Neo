@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <title>Welcome,tech!</title>
-
     <link href="../../static/css/home.css" rel="stylesheet" />
     <style>
 
@@ -12,23 +11,8 @@
 </head>
 
 <body>
-    <nav>
-        <a class="header-left" href={{home_url}}>
-            Laboratory
-        </a>
-        <a id="header-about" class="header-right">
-            About
-        </a>
-        <a class="header-right">
-            Links
-        </a>
-        <a class="header-right">
-            Archives
-        </a>
-        <a class="header-right">
-            Members
-        </a>
-    </nav>
+    {% include 'blog/navigation.html' %}
+
     <header>
         <div class="site-heading">
             <div class="heading">Neo's Matrix</div>
@@ -77,6 +61,7 @@
             Posted on 2017-06-01
         </div>
         <hr />
+
     </div>
 
     <!-- jQuery -->

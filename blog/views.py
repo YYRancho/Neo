@@ -6,4 +6,5 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, 'blog/home.html', {'home_url': 'http://192.168.1.66:8000'})
+    home_url = 'http://127.0.0.1:8000'
+    return render(request, 'blog/home.html', {'home_url': home_url})
