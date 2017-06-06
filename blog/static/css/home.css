@@ -94,9 +94,15 @@ div.tag {
     font-size: 14px;
     color: rgb(191, 191, 191);
 }
+div.sidebar-img {
+    overflow: hidden;
+    width: 150px;
+    border-radius: 60px;
+}
 div.sidebar-img>img {
+    max-width: 280px;
+    margin-left: -65px;
     padding-top: 5px;
-    max-width: 100%;
 }
 div.sidebar-content {
     padding: 20px 0 5px 0;
