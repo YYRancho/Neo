@@ -1,32 +1,24 @@
-body {
+nav {
     margin: 0px 0px;
     font-family: "Ubuntu";
     /*font-family: Arial,”Helvetica Neue“,”Hiragino Sans GB”,Simsun,sans-self;;*/
-}
-nav {
-    /*position: fixed;*/
     width: 100%;
-    /*background-color: rgba(0, 0, 0, 0.5);*/
 }
 nav>a {
     font-size: 18px;
     color: #ffffff;
     font-weight: 500;
-    padding-top: 2%;
-    padding-bottom: 2%;
 }
 nav>a:hover {
     color: rgba(255,255,255,0.8);
 }
 nav>a.header-left {
     float: left;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 2% 2%;
 }
 nav>a.header-right {
     float: right;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding: 2% 1%;
 }
 nav>a#header-about {
     padding-right: 2%;

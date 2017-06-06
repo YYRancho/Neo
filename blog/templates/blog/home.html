@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <title>Welcome,tech!</title>
     <link href="../../static/css/home.css" rel="stylesheet" />
+    <!-- font awesome -->
+    <link href="../../static/css/vendors/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <style>
 
     </style>
@@ -62,7 +64,82 @@
         </div>
         <hr />
 
+        <a href={{home_url}}>
+            <div class="pagination">
+                Older
+            </div>
+        </a>
     </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-title">
+            FEATURE TAGS
+        </div>
+        <a href={{home_url}}>
+            <div class="tag">
+                White hat
+            </div>
+        </a>
+        <a href={{home_url}}>
+            <div class="tag">
+                Fitness
+            </div>
+        </a>
+        <a href={{home_url}}>
+            <div class="tag">
+                Mac
+            </div>
+        </a>
+        <a href={{home_url}}>
+            <div class="tag">
+                Astrophysics
+            </div>
+        </a>
+        <a href={{home_url}}>
+            <div class="tag">
+                Mood
+            </div>
+        </a>
+        <hr />
+
+        <div class="sidebar-title">
+            MASK
+        </div>
+        <div class="sidebar-img">
+            <img src="../../static/images/iron-man.jpg" alt="Photo" />
+        </div>
+        <div class="sidebar-content">
+            O ever youthful, O ever weeping
+        </div>
+        <hr />
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-icon">
+                <i class="fa fa-github fa-inverse fa-2x"></i>
+            </div>
+            <div class="footer-icon">
+                <i class="fa fa-rebel fa-inverse fa-2x"></i>
+            </div>
+            <div class="footer-icon">
+                <i class="fa fa-slack fa-inverse fa-2x"></i>
+            </div>
+            <div class="footer-icon">
+                <i class="fa fa-yelp fa-inverse fa-2x"></i>
+            </div>
+        </div>
+        <div class="footer-content">
+            Copyright © Neo's Matrix 2017
+        </div>
+        <div class="footer-content">
+            Theme inspired by Hux&nbsp&nbsp
+            <span><i class="fa fa-heart"></i></span>
+            &nbsp&nbspProudly powered by Django
+        </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="../../static/js/vendors/jquery-3.2.1.js"></script>
