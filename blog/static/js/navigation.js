@@ -3,8 +3,9 @@ var before_scrolltop = $(window).scrollTop()
 $(window).scroll(function() {
     var nav = $('nav')
     var nav_a = $('nav>a')
+    var site_heading = $('div.site-heading')
     var after_scrolltop = $(window).scrollTop()
-    if (after_scrolltop < before_scrolltop && after_scrolltop > 390) {
+    if (after_scrolltop < before_scrolltop && after_scrolltop > site_heading.outerHeight()) {
         nav.css('position','fixed').css('background-color','rgba(0,133,161,0.8)')
         nav_a.css('padding-top','1.5%').css('padding-bottom','1.5%')
     } else {
