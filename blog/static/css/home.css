@@ -14,13 +14,14 @@ hr {
     margin: 20px 0;
     border: none;
     border-top: 2px solid rgba(238, 238, 238, 1);
-    opacity: 0.5;
 }
 
 /*header*/
 header {
     color: #ffffff;
-    background-image: url(../../static/images/wall.jpg); background-position: center center; background-size: cover;
+    background-image: url(../../static/images/wall.jpg);
+    background-position: center center;
+    background-size: cover;
     text-align: center;
 }
 div.site-heading {
@@ -31,6 +32,7 @@ div.heading {
     font-weight: 600;
 }
 div.subheading {
+    padding: 10px 0;
     font-family: "Ubuntu Mono";
     font-size: 18px;
 }
