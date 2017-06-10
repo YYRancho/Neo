@@ -3,10 +3,10 @@ body {
     font-family: "Ubuntu";
     /*font-family: Arial,”Helvetica Neue“,”Hiragino Sans GB”,Simsun,sans-self;;*/
 }
-a:link {
+a {
     text-decoration: none;
 }
-a:hover,a>div:hover {
+a:hover, a>div:hover {
     color: #0085a1;
     border-color: #0085a1;
 }
@@ -94,6 +94,8 @@ div.tag {
     border: 1px solid rgb(191, 191, 191);
     border-radius: 1000px;
     font-size: 14px;
+}
+div.tag>a{
     color: rgb(191, 191, 191);
 }
 div.sidebar-img {
