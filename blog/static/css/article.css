@@ -1,0 +1,87 @@
+body {
+    margin: 0px 0px;
+    font-family: "Ubuntu";
+    /*font-family: Arial,”Helvetica Neue“,”Hiragino Sans GB”,Simsun,sans-self;;*/
+}
+a {
+    text-decoration: none;
+}
+a:hover, ul.catelog-body a:hover {
+    color: #0085a1;
+    border-color: #0085a1;
+}
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 2px solid rgba(238, 238, 238, 1);
+}
+
+/*header*/
+header {
+    color: #ffffff;
+    background-image: url(../../static/images/wall.jpg);
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+}
+div.site-heading {
+    padding: 10% 0%;
+}
+div.heading {
+    font-size: 80px;
+    font-weight: 600;
+}
+div.subheading {
+    padding: 10px 0;
+    font-family: "Ubuntu Mono";
+    font-size: 18px;
+}
+
+/*Main Content*/
+div.content {
+    padding: 30px 0 0 12%;
+    width: 55%;
+    display: inline-block;
+}
+
+/*sidebar*/
+div.sidebar {
+    padding: 30px 0 0 6%;
+    width: 17%;
+    display: inline-block;
+    vertical-align: top;
+}
+div.sidebar-title {
+    margin-bottom: 20px;
+    font-family: "Ubuntu";
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(128, 128, 128);
+}
+ul.catelog-body {
+    margin: 5px 3px;
+    font-size: 16px;
+    color: rgb(191, 191, 191);
+}
+ul.catelog-body>li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+ul.catelog-body>li.h1 {
+    margin-left: -20px;
+}
+ul.catelog-body>li.h2 {
+    margin-left: 0px;
+}
+ul.catelog-body>li.h3 {
+    margin-left: 20px;
+}
+ul.catelog-body>li.h4 {
+    margin-left: 40px;
+}
+ul.catelog-body>li.h5 {
+    margin-left: 60px;
+}
+ul.catelog-body a {
+    color: rgb(191, 191, 191);
+}

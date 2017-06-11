@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Article Title{% endblock %} - Neo's Matrix</title>
+    <link href="../../static/css/article.css" rel="stylesheet" />
+</head>
+
+<body>
+    {% include 'blog/navigation.html' %}
+
+    <header>
+        <div class="site-heading">
+            <div class="heading">{% block heading %}Article Heading{% endblock %}</div>
+            <div class="subheading">{% block subheading %}Article Subheading{% endblock %}</div>
+        </div>
+    </header>
+
+    <!-- Main Contetn -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <hr />
+        <div class="sidebar-title">
+            CATELOG
+        </div>
+        <ul class="catelog-body">
+            <li class="h1">
+                <a href={{request.path}}>About W3Schools</a>
+            </li>
+            <li class="h2">
+                <a href={{request.path}}>What is W3Schools?</a>
+            </li>
+            <li class="h3">
+                <a href={{request.path}}>Easy Learning</a>
+            </li>
+            <li class="h4">
+                <a href={{request.path}}>Try It Yourself</a>
+            </li>
+            <li class="h5">
+                <a href={{request.path}}>W3Schools is Free</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    {% include 'blog/footer.html' %}
+
+    <!-- jQuery -->
+    <script src="../../static/js/vendors/jquery-3.2.1.js"></script>
+
+    <script src="../../static/js/article.js"></script>
+    <script src="../../static/js/hide_hr.js"></script>
+
+</body>
+
+</html>
