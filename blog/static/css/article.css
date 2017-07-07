@@ -43,6 +43,13 @@ div.content {
     width: 55%;
     display: inline-block;
 }
+div.content a {
+    color: rgb(0,0,0);
+}
+a.h1-anchor {
+    margin-left: -30px;
+    color: #337AB7 !important;
+}
 
 /*sidebar*/
 div.sidebar {

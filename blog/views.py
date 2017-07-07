@@ -10,4 +10,4 @@ def home(request):
     return render(request, 'blog/home.html', {'home_url': home_url})
 
 def test(request):
-    return render(request, 'blog/test.html')
+    return render(request, 'blog/article_test.html')
