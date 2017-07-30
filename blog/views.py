@@ -11,3 +11,6 @@ def home(request):
 
 def test(request):
     return render(request, 'blog/article_test.html')
+
+def animation(request):
+    return render(request, 'blog/animation.html')
