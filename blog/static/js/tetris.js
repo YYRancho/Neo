@@ -60,13 +60,15 @@ create_tetromino() // start game!
 function update_ui(current_stage) {
     let stage = $('div#tetris')
     stage.empty()
+    let s = ''
     for (let i = 1; i < row_n - 1; i++) {
         for (let j = 1; j < col_n - 1; j++) {
             if (current_stage[i][j] === 1) {
-                stage.append(`<div style="position: absolute; top: ${(i-1)*20}px; left: ${(j-1)*20}px;" class="brick"></div>`)
+                s += `<div style="position: absolute; top: ${(i-1)*20}px; left: ${(j-1)*20}px;" class="brick"></div>`
             }
         }
     }
+    stage.append(s) // do not append in the loop for performance reasons
 
     // display the rotation center for debug
     try {
