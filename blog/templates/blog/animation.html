@@ -2,16 +2,19 @@
 <html>
 
 <head>
+    {% load staticfiles %}
+
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="../../static/images/download.png" />
+    <link rel="shortcut icon" href="/static/images/download.png" />
     <title>Neo's Magic</title>
-    <link href="../../static/css/animation.css" rel="stylesheet" />
+
+    <link href="/static/css/animation.css" rel="stylesheet" />
 </head>
 
 <body>
     <!-- Main Contetn -->
     <div class="switcher">
-        <img src="../../static/images/switcher.png" />
+        <img src="static/images/switcher.png" />
     </div>
     <div class="animation-content">
         <div class="stage" id="tetris">
@@ -23,10 +26,10 @@
     {% include 'blog/footer.html' %}
 
     <!-- jQuery -->
-    <script src="../../static/vendors/jquery-3.2.1/jquery-3.2.1.js"></script>
+    <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
-    <script src="../../static/js/animation.js"></script>
-    <script src="../../static/js/tetris.js"></script>
+    <script src="/static/js/animation.js"></script>
+    <script src="/static/js/tetris.js"></script>
 
 </body>
 

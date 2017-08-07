@@ -2,8 +2,12 @@
 <html>
 
 <head>
-    <link href="../../static/vendors/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../../static/css/footer.css" rel="stylesheet" />
+    {% load staticfiles %}
+
+    <!-- font awesome -->
+    <link href="{% static "vendors/font-awesome-4.7.0/css/font-awesome.css"%}" rel="stylesheet" />
+
+    <link href="/static/css/footer.css" rel="stylesheet" />
 </head>
 
 <body>

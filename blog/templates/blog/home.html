@@ -2,12 +2,13 @@
 <html>
 
 <head>
+    {% load staticfiles %}
+
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="../../static/images/download.png" />
+    <link rel="shortcut icon" href="/static/images/download.png" />
     <title>Welcome,tech!</title>
-    <link href="../../static/css/home.css" rel="stylesheet" />
-    <!-- font awesome -->
-    <link href="../../static/vendors/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="/static/css/home.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -94,7 +95,7 @@
             MASK
         </div>
         <div class="sidebar-img">
-            <img src="../../static/images/iron-man.jpg" alt="Photo" />
+            <img src="/static/images/iron-man.jpg" alt="Photo" />
         </div>
         <div class="sidebar-content">
             O ever youthful, O ever weeping
@@ -106,9 +107,9 @@
     {% include 'blog/footer.html' %}
 
     <!-- jQuery -->
-    <script src="../../static/vendors/jquery-3.2.1/jquery-3.2.1.js"></script>
+    <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
-    <script src="../../static/js/hide_hr.js"></script>
+    <script src="/static/js/hide_hr.js"></script>
 
 </body>
 

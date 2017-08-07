@@ -2,10 +2,13 @@
 <html>
 
 <head>
+    {% load staticfiles %}
+
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="../../static/images/download.png" />
+    <link rel="shortcut icon" href="/static/images/download.png" />
     <title>{% block title %}Article Title{% endblock %} - Neo's Matrix</title>
-    <link href="../../static/css/article.css" rel="stylesheet" />
+
+    <link href="/static/css/article.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -52,10 +55,10 @@
     {% include 'blog/footer.html' %}
 
     <!-- jQuery -->
-    <script src="../../static/vendors/jquery-3.2.1/jquery-3.2.1.js"></script>
+    <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
-    <script src="../../static/js/article.js"></script>
-    <script src="../../static/js/hide_hr.js"></script>
+    <script src="/static/js/article.js"></script>
+    <script src="/static/js/hide_hr.js"></script>
 
 </body>
 
