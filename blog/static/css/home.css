@@ -19,7 +19,7 @@ hr {
 /*header*/
 header {
     color: #ffffff;
-    background-image: url(../../static/images/wall.jpg);
+    background-image: url(/static/images/wall.jpg);
     background-position: center center;
     background-size: cover;
     text-align: center;

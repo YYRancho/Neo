@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from blog import views as blog_view
+from chatroom import views as chatroom_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', blog_view.home),
-    url(r'^test/article/$', blog_view.test),
+    url(r'^blog$', blog_view.home),
+    url(r'^test/article$', blog_view.test),
     url(r'^animation$', blog_view.animation),
+    url(r'^$', chatroom_view.get_chatroom),
+    url(r'^get_messages$', chatroom_view.get_messages),
 ]

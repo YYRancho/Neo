@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load staticfiles %}
+
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/static/images/download.png" />
+    <title>Neo's Chatroom</title>
+
+    <link href="/static/css/chatroom.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- leftbar -->
+    <div class="leftbar">
+        <div class="container">
+            Time Record
+        </div>
+    </div>
+
+
+    <!-- content -->
+    <div class="content">
+        <div class="received-pane container">
+            10.199.63.13
+        </div>
+        <div class="editor-pane container">
+            User: Ladykiller
+            <button class="get_messages" onclick="get_messages()">
+                BUTTON
+            </button>
+        </div>
+    </div>
+
+    <!-- rightbar -->
+    <div class="rightbar">
+        <div class="container">
+            Vincent
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
+
+    <script src="/static/js/chatroom.js"></script>
+
+</body>
+
+</html>

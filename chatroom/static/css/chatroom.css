@@ -1,0 +1,53 @@
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    font-family: "Ubuntu";
+    margin: 0px 0px;
+    background-image: url('/static/images/iron-man.jpg');
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    margin: 5px;
+}
+
+.leftbar, .content, .rightbar {
+    height: 100%;
+}
+
+
+/*leftbar*/
+.leftbar {
+    flex: 0 0 auto;
+    width: 15%;
+    border-right: 4px dashed #2ecc71;
+}
+
+
+/*conten*/
+.content {
+    flex: 1 0 auto;
+    height: 100%;
+}
+.received-pane {
+    height: 70%;
+}
+.editor-pane {
+    height: calc(100% - 70% - 15px);
+}
+
+
+/*rightbar*/
+.rightbar {
+    flex: 0 0 auto;
+    width: 15%;
+    border-left: 4px dashed #2E6ECC;
+}
