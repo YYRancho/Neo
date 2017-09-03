@@ -25,4 +25,6 @@ urlpatterns = [
     url(r'^animation$', blog_view.animation),
     url(r'^$', chatroom_view.get_chatroom),
     url(r'^get_messages$', chatroom_view.get_messages),
+    url(r'^get_users$', chatroom_view.get_users),
+    url(r'^update_my_name$', chatroom_view.update_my_name),
 ]

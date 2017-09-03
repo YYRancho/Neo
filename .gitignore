@@ -100,3 +100,5 @@ ENV/
 
 \.gitignore~
 venv-neo/
+db.sqlite3
+migrations/
