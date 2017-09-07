@@ -1,18 +1,18 @@
 // ========== tetris ==========
 // initialize
 // the first and last values of the array are used to judge the state instead of display bricks
-const row_n = 26+2 // array row number
-const col_n = 18+2 // array column number
-const type_array = ['O','I','Z','S','J','L','T']
+const ROW_NUMBER = 26+2 // array row number
+const COL_NUMBER = 18+2 // array column number
+const TYPE_ARRAY = ['O','I','Z','S','J','L','T']
 let stage_array = []
 let current_stage = []
 let tetromino = []
 let timer
 let tetromino_type
 let q_flag = true
-for (let i = 0; i < row_n; i++) {
+for (let i = 0; i < ROW_NUMBER; i++) {
     let foo = []
-    for (let j = 0; j < col_n; j++) {
+    for (let j = 0; j < COL_NUMBER; j++) {
         foo.push(0)
     }
     stage_array.push(foo)
@@ -61,8 +61,8 @@ function update_ui(current_stage) {
     let stage = $('div#tetris')
     stage.empty()
     let s = ''
-    for (let i = 1; i < row_n - 1; i++) {
-        for (let j = 1; j < col_n - 1; j++) {
+    for (let i = 1; i < ROW_NUMBER - 1; i++) {
+        for (let j = 1; j < COL_NUMBER - 1; j++) {
             if (current_stage[i][j] === 1) {
                 s += `<div style="position: absolute; top: ${(i-1)*20}px; left: ${(j-1)*20}px;" class="brick"></div>`
             }
@@ -73,8 +73,8 @@ function update_ui(current_stage) {
     // display the rotation center for debug
     try {
         let valid_coordinates = []
-        for (let i = 0; i < row_n; i++) {
-            for (let j = 0; j < col_n; j++) {
+        for (let i = 0; i < ROW_NUMBER; i++) {
+            for (let j = 0; j < COL_NUMBER; j++) {
                 if (tetromino[i][j] === 1) {
                     valid_coordinates.push([i,j])
                 }
@@ -93,7 +93,7 @@ function update_ui(current_stage) {
 // generate a tetromino randomly
 function create_tetromino() {
     // detect whether the game is over
-    for (let j = 1; j < col_n - 1; j++) {
+    for (let j = 1; j < COL_NUMBER - 1; j++) {
         if (current_stage.length > 0 && current_stage[2][j] === 1) {
             alert('Tetris Over!')
             return
@@ -101,7 +101,7 @@ function create_tetromino() {
     }
 
     // generate the first 2 rows of the tetromino(array)
-    tetromino_type = type_array[Math.floor(Math.random()*7)]
+    tetromino_type = TYPE_ARRAY[Math.floor(Math.random()*7)]
     console.log(tetromino_type);
     let s
     switch (tetromino_type) {
@@ -139,10 +139,10 @@ function create_tetromino() {
     tetromino = string_to_tetromino(s)
 
     // generate the first blank row of the tetromino(array)
-    tetromino.unshift(generate_zero(col_n))
+    tetromino.unshift(generate_zero(COL_NUMBER))
     // generate the next 25(=26+2-3) blank rows of the tetromino(array)
-    for (let i = 3; i < row_n; i++) {
-        tetromino.push(generate_zero(col_n))
+    for (let i = 3; i < ROW_NUMBER; i++) {
+        tetromino.push(generate_zero(COL_NUMBER))
     }
 
     current_stage = add(stage_array,tetromino)
@@ -156,7 +156,7 @@ function move_down() {
     clearTimeout(timer)
     let sub_tetromino = deepcopy(tetromino)
     sub_tetromino.pop()
-    sub_tetromino.unshift(generate_zero(col_n))
+    sub_tetromino.unshift(generate_zero(COL_NUMBER))
     let flag = detect_state(stage_array,sub_tetromino)
     if (flag === true) {
         tetromino = sub_tetromino
@@ -177,8 +177,8 @@ function move_horizontally(direction) {
 
     // find valid rows
     let valid_row_coordinates = []
-    for (let i = 0; i < row_n; i++) {
-        for (let j = 1; j < col_n; j++) {
+    for (let i = 0; i < ROW_NUMBER; i++) {
+        for (let j = 1; j < COL_NUMBER; j++) {
             if (sub_tetromino[i][j] === 1) {
                 valid_row_coordinates.push(i)
                 break
@@ -216,8 +216,8 @@ function rotate() {
     }
 
     let valid_coordinates = []
-    for (let i = 0; i < row_n; i++) {
-        for (let j = 0; j < col_n; j++) {
+    for (let i = 0; i < ROW_NUMBER; i++) {
+        for (let j = 0; j < COL_NUMBER; j++) {
             if (tetromino[i][j] === 1) {
                 valid_coordinates.push([i,j])
             }
@@ -225,8 +225,8 @@ function rotate() {
     }
 
     let sub_tetromino = []
-    for (let i = 0; i < row_n; i++) {
-        sub_tetromino.push(generate_zero(col_n))
+    for (let i = 0; i < ROW_NUMBER; i++) {
+        sub_tetromino.push(generate_zero(COL_NUMBER))
     }
 
     let [center_x, center_y] = calc_center(valid_coordinates)
@@ -263,9 +263,9 @@ function rotate() {
 function eliminate() {
     // calculate the lines to eliminate
     rows_to_eliminate = []
-    for (let i = row_n - 2; i > 0; i--) {
+    for (let i = ROW_NUMBER - 2; i > 0; i--) {
         let flag = 1
-        for (let j = 1; j < col_n - 1; j++) {
+        for (let j = 1; j < COL_NUMBER - 1; j++) {
             if (current_stage[i][j] === 0) {
                 flag = 0
                 break
@@ -282,7 +282,7 @@ function eliminate() {
         current_stage.splice(i,1)
     }
     for (let i = 0; i < rows_to_eliminate.length; i++) {
-        current_stage.unshift(generate_zero(col_n))
+        current_stage.unshift(generate_zero(COL_NUMBER))
     }
 }
 
@@ -299,8 +299,8 @@ function calc_center(valid_coordinates) {
 // calculate the current_stage = stage_array + tetromino, which is for rendering.
 function add(stage_array,tetromino) {
     let current_stage = deepcopy(stage_array); // copy stage_array to current_stage
-    for (let i = 0; i < row_n; i++) {
-        for (let j = 0; j < col_n; j++) {
+    for (let i = 0; i < ROW_NUMBER; i++) {
+        for (let j = 0; j < COL_NUMBER; j++) {
             current_stage[i][j] += tetromino[i][j]
         }
     }
@@ -309,14 +309,14 @@ function add(stage_array,tetromino) {
 
 function detect_state(stage_array,tetromino) {
     let current_stage = add(stage_array,tetromino)
-    for (let i = 0; i < row_n; i++) {
-        for (let j = 0; j < col_n; j++) {
+    for (let i = 0; i < ROW_NUMBER; i++) {
+        for (let j = 0; j < COL_NUMBER; j++) {
             // detect the state that the new tetromino collide with the old tetrominoes
             if (current_stage[i][j] === 2) {
                 return false
             }
             // detect the state that the new tetromino collide with the floor or wall
-            if ((current_stage[i][j]===1)&&((i===0)||(i===row_n - 1)||(j===0)||(j===col_n - 1))) {
+            if ((current_stage[i][j]===1)&&((i===0)||(i===ROW_NUMBER - 1)||(j===0)||(j===COL_NUMBER - 1))) {
                 return false
             }
         }
