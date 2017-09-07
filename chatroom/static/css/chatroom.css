@@ -14,13 +14,24 @@ body {
     background-size: cover;
     color: #fff;
     line-height: 2rem;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 a {
     text-decoration: none;
 }
 .container {
     margin: 5px 15px 5px 15px;
+}
+
+.monospace {
+    font-family: "Dejavu Sans Mono";
+}
+
+/*rolling*/
+.rolling {
+    height: 100%;
+    overflow-y: hidden;
+    width: 100%;
 }
 
 /*divider*/
@@ -36,6 +47,15 @@ a {
     color: #2E6ECC;
 }
 
+/*user label*/
+.user-name {
+    font-weight: bold;
+    color: #32B0D6;
+}
+.user-ip {
+    color: #E8DE08;
+}
+
 
 /* ========== content ========== */
 .main-content {
@@ -45,14 +65,8 @@ a {
 }
 .message-pane {
     /*TODO: set height*/
-    height: 30rem;
+    min-height: 30rem;
     overflow-x: hidden;
-}
-.message-pane>div, .my-message>div {
-    height: 100%;
-    overflow-y: auto;
-    width: calc(100% + 16px); /* wider than 100%(parent element) to make the vertical scroll bar hidden
-    /*padding: 0 20px 0 0;*/
 }
 .message-wrapper {
     display: flex;
@@ -68,20 +82,13 @@ a {
 .message-time {
     color: #EF4C84;
 }
-.message-sender, .user-name, .my-name {
-    font-weight: bold;
-    color: #32B0D6;
-}
-.message-sender-ip, .user-ip, .my-ip {
-    color: #E8DE08;
-}
 
 /*editor pane*/
 .my-pane {
     display: flex;
     flex-direction: row;
-    height: calc(100% - 30rem - 15px);
-    margin-top: -5px;
+    /*TODO: set height*/
+    max-height: calc(100% - 30rem);
 }
 .function-pane {}
 .editor-pane {}
@@ -90,12 +97,29 @@ a {
     background-color: #513a70;
 }
 .my-message {
-    /*TODO: set height*/
-    height: 10rem;
+    height: calc(100% - 2rem);
     overflow-x: hidden;
+    overflow-y: hidden; /* prevent vertical scroll bar appearing **when textarea is used** although nothing is covered(unknown reason)*/
 }
 .my-message>div {
     overflow-x: hidden; /* prevent horizontal scroll bar appearing at the begining*/
+    outline: none;
+    caret-color: #EF4C84;
+}
+.my-message>textarea {
+    font-size: 1rem;
+    line-height: 2rem;
+    border: none;
+    padding: 0;
+    background: transparent;
+    outline: none;
+    color: #fff;
+    resize: none;
+}
+.my-message>textarea::placeholder {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 8rem; /* minimum line height = minimum height*/
 }
 
 /* ========== rightbar ========== */
@@ -109,8 +133,4 @@ a {
     /*width: 100%;*/
     overflow-x: hidden;
 }
-.user-pane>div {
-    height: 100%;
-    width: calc(100% + 16px);
-    overflow-y: auto;
-}
+.user-pane>div {}

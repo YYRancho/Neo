@@ -24,7 +24,8 @@ urlpatterns = [
     url(r'^test/article$', blog_view.test),
     url(r'^animation$', blog_view.animation),
     url(r'^$', chatroom_view.get_chatroom),
+    url(r'^get_my_ip$', chatroom_view.get_my_ip),
     url(r'^get_messages$', chatroom_view.get_messages),
+    url(r'^send_my_message$', chatroom_view.send_my_message),
     url(r'^get_users$', chatroom_view.get_users),
-    url(r'^update_my_name$', chatroom_view.update_my_name),
 ]

@@ -13,56 +13,63 @@
 
 <body>
     <!-- content -->
-    <div class="main-content">
-        <div class="message-pane container">
-            <div id="message-list">
+    <div class="main-content container">
+        <div class="message-pane">
+            <div id="message-list" class="rolling">
                 <div class="message-wrapper">
                     <div class="message-time">
-                        2017-09-01 16:44:27
+                        2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        Agent Smith@10.199.199.199 : Why, Mr. Anderson? Why, why, why? Why do you do it? Why? Why get up? Why keep fighting? Do you believe you're fighting for something? For more than your survival? Can you tell me what it is? Do you even know? [becomes visibly agitated] Is it freedom or truth?! Perhaps peace?! Could it be for love?! Illusions, Mr. Anderson, vagaries of perception! Temporary constructs of a feeble human intellect trying desperately to justify an existence that is without meaning or purpose!
+                        <span class="user-name monospace">Neo</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span>Welcome to The Matrix</span>
+                    </div>
+                </div>
+                <div class="message-wrapper">
+                    <div class="message-time">
+                        2017-03-13 00:00:00
+                    </div>
+                    <div class="message-content">
+                        <span class="user-name monospace">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span style="background-color: darkblue"> Press [Enter] to update your name after your typing</span>
+                    </div>
+                </div>
+                <div class="message-wrapper">
+                    <div class="message-time">
+                        2017-03-13 00:00:00
+                    </div>
+                    <div class="message-content">
+                        <span class="user-name monospace">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span style="background-color: darkblue">Press [Ctrl] + [Enter] to send your message after your typing</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="my-pane container">
+        <div class="my-pane">
             <div class="function-pane">
-                <button id="get_messages" style="width:100%;">
-                    Get Messsages
-                </button>
+
             </div>
             <div class="editor-pane">
-                <form id="update-my-name" class="my-identity">
-                    <input type="hidden" name="entered-name" />
-                    <span contenteditable="true" spellcheck="false" id="name-editor" class="my-name">Ladykiller</span>
-                    @<span class="my-ip">10.177.66.31</span>
-                </form>
-                <form id="send-message" class="my-message">
-                    <input type="hidden" name="entered-message" />
-                    <div contenteditable="true" id="message-editor">
-                        User :
-                        Your life is the sum of a remainder of an unbalanced equation inherent to the programming of the Matrix. You are the eventuality of an anomaly, which despite my sincerest efforts I have been unable to eliminate from what is otherwise a harmony of mathematical precision. While it remains a burden assiduously avoided, it is not unexpected, and thus not beyond a measure of control, which has led you, inexorably, here.
-                        Your life is the sum of a remainder of an unbalanced equation inherent to the programming of the Matrix. You are the eventuality of an anomaly, which despite my sincerest efforts I have been unable to eliminate from what is otherwise a harmony of mathematical precision. While it remains a burden assiduously avoided, it is not unexpected, and thus not beyond a measure of control, which has led you, inexorably, here.
-                    </div>
+                <div class="my-identity">
+                    <span contenteditable="true"  spellcheck="false" id="name-editor" class="user-name">Ladykiller</span>@<span id="my-ip" class="user-ip">10.199.199.199</span>
+                </div>
+                <form id="send-my-message" class="my-message">
+                    {% csrf_token %}
+                    <input type="hidden" name="name" />
+                    <input type="hidden" name="ip" />
+                    <!-- <input type="hidden" name="entered-message" /> -->
+                    <!-- <div contenteditable="true" id="message-editor" class="rolling">Your life is the sum of a remainder of an unbalanced equation inherent to the programming of the Matrix. You are the eventuality of an anomaly, which despite my sincerest efforts I have been unable to eliminate from what is otherwise a harmony of mathematical precision. While it remains a burden assiduously avoided, it is not unexpected, and thus not beyond a measure of control, which has led you, inexorably, here.</div> -->
+                    <textarea name="entered-message" form="send-my-message" id="message-editor" class="rolling" placeholder="Press [Ctrl] + [Enter] to send your message"></textarea>
                 </form>
             </div>
         </div>
     </div>
 
     <!-- rightbar -->
-    <div class="rightbar">
-        <div class="user-pane container">
-            <div id="user-list">
+    <div class="rightbar container">
+        <div class="user-pane">
+            <div id="user-list" class="rolling">
                 Vincent
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
@@ -77,6 +84,9 @@
     <!-- jQuery -->
     <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
+    <script src="/static/js/chatroom_ui.js"></script>
+    <script src="/static/js/chatroom_user_profile.js"></script>
+    <script src="/static/js/chatroom_messages.js"></script>
     <script src="/static/js/chatroom.js"></script>
 
 </body>
