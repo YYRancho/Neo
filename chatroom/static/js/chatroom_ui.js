@@ -5,14 +5,19 @@ $(window).resize(function(event) {
     // in order to use rem unit
     let fs = Number($('html').css('font-size').slice(0,-2))
 
-    // set the height of message-pane
+    // make the height of message-pane an integral multiple of line-height
     let h_rem = Math.floor(Number($('body').height()-10)/fs)
     h_rem = h_rem % 2 ? h_rem + 1 : h_rem
     $('.main-content').height(`${h_rem}rem`)
 
-    // set the height of tip messages
+    // make the height of tip message wrappers an integral multiple of line-height
     $('.tip').each(function(index, ele) {
-        ele.style.height = String(Math.floor(ele.offsetHeight/fs)) + 'rem';
+        ele = $(ele)
+        // here we need to clear old height parameter or it will influence the calculation
+        // because the calculation need the new natural(not original and not modified by script) height number
+        // after some layout changes
+        ele.height('')
+        ele.height(String(Math.floor(ele.height()/fs)) + 'rem')
     })
 
     // set textarea placeholder vertical alignment
@@ -47,6 +52,7 @@ class Rolling {
         this.scroll_pos = this.ele.scrollTop()
     }
 
+    // make every scroll step equal to line-height
     control_step() {
         let ele = this.ele
         let scroll_pos = this.scroll_pos
