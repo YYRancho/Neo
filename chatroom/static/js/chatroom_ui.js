@@ -2,18 +2,21 @@
 $(window).resize(function(event) {
     console.log('window resize');
 
-    // set the height of message-pane and my-pane
-    let h_rem = Math.floor(Number($('body').height()-10)/16)
+    // in order to use rem unit
+    let fs = Number($('html').css('font-size').slice(0,-2))
+
+    // set the height of message-pane
+    let h_rem = Math.floor(Number($('body').height()-10)/fs)
     h_rem = h_rem % 2 ? h_rem + 1 : h_rem
-    let h1_rem = Math.floor(h_rem*0.70)
-    h1_rem = h1_rem % 2 ? h1_rem + 1 : h1_rem
     $('.main-content').height(`${h_rem}rem`)
-    $('.message-pane').height(`${h1_rem}rem`)
-    $('.my-pane').height(`calc(100% - ${h1_rem}rem)`)
+
+    // set the height of tip messages
+    $('.tip').each(function(index, ele) {
+        ele.style.height = String(Math.floor(ele.offsetHeight/fs)) + 'rem';
+    })
 
     // set textarea placeholder vertical alignment
     $('head').append(`<style type="text/css">textarea::placeholder {line-height:${$('#send-my-message').height()}px !important;}</style>`)
-
 
     // layout alignment
     $('.function-pane').width($('.message-time').width())
@@ -34,14 +37,14 @@ $(window).resize(function(event) {
     s2 += '▎<br>'.repeat(h_rem/2)
     s2 += '</div>'
     $('body').append(s2)
-});
+})
 $(window).resize()
 
 // ========== scroll control ==========
 class Rolling {
     constructor(selector) {
         this.ele = $(selector)
-        this.scroll_pos = 0
+        this.scroll_pos = this.ele.scrollTop()
     }
 
     control_step() {
@@ -58,6 +61,9 @@ class Rolling {
                 console.log('+', step)
             } else if (ele.scrollTop() < scroll_pos){
                 scroll_pos -= step
+                while (ele.scrollTop() < scroll_pos) {
+                    scroll_pos -= step
+                }
                 console.log('-', step)
             }
             ele.scrollTop(scroll_pos)

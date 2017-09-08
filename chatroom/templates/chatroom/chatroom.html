@@ -16,30 +16,30 @@
     <div class="main-content container">
         <div class="message-pane">
             <div id="message-list" class="rolling">
-                <div class="message-wrapper">
+                <div class="message-wrapper tip">
                     <div class="message-time">
                         2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        <span class="user-name monospace">Neo</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span class="user-name">Neo</span>@<span class="user-ip">0.0.0.0</span> :
                         <span>Welcome to The Matrix</span>
                     </div>
                 </div>
-                <div class="message-wrapper">
+                <div class="message-wrapper tip">
                     <div class="message-time">
                         2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        <span class="user-name monospace">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span class="user-name">Tip</span>@<span class="user-ip">0.0.0.0</span> :
                         <span style="background-color: darkblue"> Press [Enter] to update your name after your typing</span>
                     </div>
                 </div>
-                <div class="message-wrapper">
+                <div class="message-wrapper tip">
                     <div class="message-time">
                         2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        <span class="user-name monospace">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span class="user-name">Tip</span>@<span class="user-ip">0.0.0.0</span> :
                         <span style="background-color: darkblue">Press [Ctrl] + [Enter] to send your message after your typing</span>
                     </div>
                 </div>
@@ -47,7 +47,9 @@
         </div>
         <div class="my-pane">
             <div class="function-pane">
-
+                <button id="scroll-top">Scroll to top</button>
+                <button id="scroll-bottom">Scroll to bottom</button>
+                <button id="clear">Clear screen</button>
             </div>
             <div class="editor-pane">
                 <div class="my-identity">
@@ -69,14 +71,14 @@
     <div class="rightbar container">
         <div class="user-pane">
             <div id="user-list" class="rolling">
-                Vincent
+                <!-- Vincent
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
                 <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
+                <div>Agent Smith@10.199.199.199</div> -->
             </div>
         </div>
     </div>
@@ -85,7 +87,7 @@
     <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
     <script src="/static/js/chatroom_ui.js"></script>
-    <script src="/static/js/chatroom_user_profile.js"></script>
+    <script src="/static/js/chatroom_my_profile.js"></script>
     <script src="/static/js/chatroom_messages.js"></script>
     <script src="/static/js/chatroom.js"></script>
 

@@ -15,7 +15,7 @@ $('#name-editor').keydown(function(event) {
         }
         $('#name-editor').blur() /*stop focusing*/
     }
-});
+})
 
 function detect_name(selector) {
     let name_editor = $(selector)

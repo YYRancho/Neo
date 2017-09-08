@@ -70,7 +70,7 @@ $('#message-editor').keydown(function(event) {
         $('#message-list').append(message_text)
         message_editor.blur() /*stop focusing*/
     }
-});
+})
 $('#send-my-message').submit(function(event) {
     event.preventDefault() /* prevent page jump*/
     let form = $(this)
@@ -82,9 +82,9 @@ $('#send-my-message').submit(function(event) {
     })
     .done(function(response) {
         console.log("send my message SUCCESS");
-        alert(response)
+        // alert(response)
     })
     .fail(function() {
         console.log("send my message ERROR");
     })
-});
+})
