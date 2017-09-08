@@ -26,6 +26,7 @@ def get_messages(request):
         message_list = [{"time": message.time.strftime('%Y-%m-%d %H:%M:%S.%f'), "sender": message.sender, "sender_ip": message.sender_ip, "text": message.text} for message in messages]
         if len(message_list) > 0:
             break
+        time.sleep(1)
     return HttpResponse(json.dumps(message_list))
 
 def send_my_message(request):
