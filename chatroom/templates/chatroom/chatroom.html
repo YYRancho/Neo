@@ -16,31 +16,40 @@
     <div class="main-content container">
         <div class="message-pane">
             <div id="message-list" class="rolling">
-                <div class="message-wrapper tip">
+                <div class="message-wrapper">
                     <div class="message-time">
                         2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        <span class="user-name">Neo</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span class="user-name monospaced">Neo</span>@<span class="user-ip">0.0.0.0</span> :
                         <span>Welcome to The Matrix</span>
                     </div>
                 </div>
-                <div class="message-wrapper tip">
+                <div class="message-wrapper">
                     <div class="message-time">
                         2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        <span class="user-name">Tip</span>@<span class="user-ip">0.0.0.0</span> :
-                        <span style="background-color: darkblue"> Press [Enter] to update your name after your typing</span>
+                        <span class="user-name monospaced">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span style="background-color:darkblue;padding:2px 2px;"> Press [Enter] to update your name after your typing</span>
                     </div>
                 </div>
-                <div class="message-wrapper tip">
+                <div class="message-wrapper">
                     <div class="message-time">
                         2017-03-13 00:00:00
                     </div>
                     <div class="message-content">
-                        <span class="user-name">Tip</span>@<span class="user-ip">0.0.0.0</span> :
-                        <span style="background-color: darkblue">Press [Ctrl] + [Enter] to send your message after your typing</span>
+                        <span class="user-name monospaced">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span style="background-color:darkblue;padding:2px 2px;">Press [Ctrl] + [Enter] to send your message after your typing</span>
+                    </div>
+                </div>
+                <div class="message-wrapper">
+                    <div class="message-time">
+                        2017-03-13 00:00:00
+                    </div>
+                    <div class="message-content">
+                        <span class="user-name monospaced">Tip</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span style="background-color:darkblue;padding:2px 2px;">Drag your file(s) to the textbox below for uploading</span>
                     </div>
                 </div>
             </div>
@@ -59,8 +68,6 @@
                     {% csrf_token %}
                     <input type="hidden" name="name" />
                     <input type="hidden" name="ip" />
-                    <!-- <input type="hidden" name="entered-message" /> -->
-                    <!-- <div contenteditable="true" id="message-editor" class="rolling">Your life is the sum of a remainder of an unbalanced equation inherent to the programming of the Matrix. You are the eventuality of an anomaly, which despite my sincerest efforts I have been unable to eliminate from what is otherwise a harmony of mathematical precision. While it remains a burden assiduously avoided, it is not unexpected, and thus not beyond a measure of control, which has led you, inexorably, here.</div> -->
                     <textarea name="entered-message" form="send-my-message" id="message-editor" class="rolling" placeholder="Press [Ctrl] + [Enter] to send your message"></textarea>
                 </form>
             </div>
@@ -71,14 +78,6 @@
     <div class="rightbar container">
         <div class="user-pane">
             <div id="user-list" class="rolling">
-                <!-- Vincent
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div>
-                <div>Agent Smith@10.199.199.199</div> -->
             </div>
         </div>
     </div>
@@ -86,9 +85,17 @@
     <!-- jQuery -->
     <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
+    <!-- django csrf preotection -->
+    <script>
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+        })
+    </script>
+
     <script src="/static/js/chatroom_ui.js"></script>
     <script src="/static/js/chatroom_my_profile.js"></script>
-    <script src="/static/js/chatroom_messages.js"></script>
+    <script src="/static/js/chatroom_message.js"></script>
+    <script src="/static/js/chatroom_file.js"></script>
     <script src="/static/js/chatroom.js"></script>
 
 </body>

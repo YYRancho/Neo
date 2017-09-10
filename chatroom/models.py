@@ -15,7 +15,10 @@ class Message(models.Model):
     time = models.DateTimeField(auto_now=False,auto_now_add=True)
     sender = models.CharField(max_length=30)
     sender_ip = models.GenericIPAddressField()
+    is_file = models.BooleanField()
     text = models.CharField(max_length=1000)
 
     def __unicode__(self):
+        if is_file:
+            return '%s %s(%s): [File]%s' % (self.time, self.sender, self.sender_ip, self.text)
         return '%s %s(%s): %s' % (self.time, self.sender, self.sender_ip, self.text)

@@ -9,6 +9,7 @@ from chatroom.models import Message
 import json
 import datetime
 import time
+import base64
 import random
 
 def get_chatroom(request):
@@ -20,22 +21,32 @@ def get_my_ip(request):
 def get_messages(request):
     start_time = datetime.datetime.now() # prevent long polling occupying too much resource
     message_list = []
-    while len(message_list) == 0 and (datetime.datetime.now()-start_time).seconds < 60:
+    while len(message_list) == 0 and (datetime.datetime.now()-start_time).seconds < 65:
         last_message_time = request.GET.get('last_message_time')
         messages = Message.objects.raw('SELECT id, sender, sender_ip, time, text FROM chatroom_message WHERE time>"%s"' % last_message_time)
-        message_list = [{"time": message.time.strftime('%Y-%m-%d %H:%M:%S.%f'), "sender": message.sender, "sender_ip": message.sender_ip, "text": message.text} for message in messages]
+        message_list = [{"time": message.time.strftime('%Y-%m-%d %H:%M:%S.%f'), "sender": message.sender, "sender_ip": message.sender_ip, "is_file": message.is_file, "text": message.text} for message in messages]
         if len(message_list) > 0:
             break
-        time.sleep(1)
+        else:
+            time.sleep(0.1)
     return HttpResponse(json.dumps(message_list))
 
 def send_my_message(request):
     entered_message = request.POST['entered-message']
     name = request.POST['name']
     ip = request.POST['ip']
-    Message.objects.create(time=datetime.datetime.now(),sender=name,sender_ip=ip,text=entered_message)
+    Message.objects.create(time=datetime.datetime.now(),sender=name,sender_ip=ip,is_file=False,text=entered_message)
     return HttpResponse('The message was sent successfully!\nSender : %s@%s\nMessage text : %s' % (name,ip,entered_message))
 
+def upload_my_file(request):
+    user_name = request.POST['user_name']
+    ip = request.POST['ip']
+    file_name = request.POST['file_name']
+    file_content = request.POST['file_content']
+    with open('chatroom/static/upload/'+file_name,'w') as f:
+        f.write(base64.b64decode(file_content))
+    Message.objects.create(time=datetime.datetime.now(),sender=user_name,sender_ip=ip,is_file=True,text=file_name)
+    return HttpResponse('The file was uploaded successfully!\nSender : %s@%s\nContent : %s' % (user_name, ip, file_name))
 
 def get_users(request):
     users = User.objects.raw('SELECT id, name, ip FROM chatroom_user')

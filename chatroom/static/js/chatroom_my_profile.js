@@ -1,9 +1,11 @@
 // ========== generate name randomly and get ip ==========
-let my_name = Math.random().toString(36).substr(2).replace(/\d/g,'')
-my_name = my_name.substr(0,1).toUpperCase() + my_name.substr(1).toLowerCase()
-my_name += ' (guest)'
-$('#name-editor').text(my_name)
-get_my_ip('#my-ip')
+$(document).ready(function() {
+    let my_name = Math.random().toString(36).substr(2).replace(/\d/g,'')
+    my_name = my_name.substr(0,1).toUpperCase() + my_name.substr(1).toLowerCase()
+    my_name += ' (guest)'
+    $('#name-editor').text(my_name)
+    get_my_ip('#my-ip')
+})
 
 // ========== update my name ==========
 $('#name-editor').keydown(function(event) {

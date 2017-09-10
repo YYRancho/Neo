@@ -102,3 +102,4 @@ ENV/
 venv-neo/
 db.sqlite3
 migrations/
+upload/

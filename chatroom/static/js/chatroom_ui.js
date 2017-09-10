@@ -1,3 +1,18 @@
+// ========== initial ==========
+$(document).ready(function() {
+    $(window).resize()
+
+    let message_list = new Rolling('#message-list')
+    message_list.control_step()
+    message_list.adjust_width(resize_detection=false, retreat_detection=false)
+    let message_editor = new Rolling('#message-editor')
+    message_editor.control_step()
+    message_editor.adjust_width(resize_detection=false, retreat_detection=true)
+    let user_list = new Rolling('#user-list')
+    user_list.control_step()
+    user_list.adjust_width(resize_detection=true, retreat_detection=false)
+})
+
 // ========== Draw dividers and keep layout aligned ==========
 $(window).resize(function(event) {
     console.log('window resize');
@@ -11,13 +26,9 @@ $(window).resize(function(event) {
     $('.main-content').height(`${h_rem}rem`)
 
     // make the height of tip message wrappers an integral multiple of line-height
-    $('.tip').each(function(index, ele) {
+    $('.message-wrapper').each(function(index, ele) {
         ele = $(ele)
-        // here we need to clear old height parameter or it will influence the calculation
-        // because the calculation need the new natural(not original and not modified by script) height number
-        // after some layout changes
-        ele.height('')
-        ele.height(String(Math.floor(ele.height()/fs)) + 'rem')
+        limit_height(ele,fs)
     })
 
     // set textarea placeholder vertical alignment
@@ -43,7 +54,16 @@ $(window).resize(function(event) {
     s2 += '</div>'
     $('body').append(s2)
 })
-$(window).resize()
+
+function limit_height(ele,font_size) {
+    /*
+    here we need to clear old height parameter or it will influence the calculation
+    because the calculation need the new natural(not original and not modified by script) height number
+    after some layout changes
+    */
+    ele.height('')
+    ele.height(String(Math.floor(ele.height()/font_size)) + 'rem')
+}
 
 // ========== scroll control ==========
 class Rolling {
@@ -58,23 +78,23 @@ class Rolling {
         let scroll_pos = this.scroll_pos
         let step = Number($('body').css('line-height').slice(0,-2))
         ele.scroll(function(event) {
-            console.log('before:', scroll_pos,'now:', ele.scrollTop())
+            console.log('before:', scroll_pos, 'now:', ele.scrollTop())
             if (ele.scrollTop() > scroll_pos) {
                 scroll_pos += step
                 while (ele.scrollTop() > scroll_pos) {
                     scroll_pos += step
                 }
-                console.log('+', step)
+                console.log('+')
             } else if (ele.scrollTop() < scroll_pos){
                 scroll_pos -= step
                 while (ele.scrollTop() < scroll_pos) {
                     scroll_pos -= step
                 }
-                console.log('-', step)
+                console.log('-')
             }
             ele.scrollTop(scroll_pos)
             console.log('*',ele.scrollTop())
-        });
+        })
     }
 
     adjust_width(resize_detection, retreat_detection) {
@@ -99,12 +119,3 @@ class Rolling {
         }, 500)
     }
 }
-let message_list = new Rolling('#message-list')
-message_list.control_step()
-message_list.adjust_width(resize_detection=false, retreat_detection=false)
-let message_editor = new Rolling('#message-editor')
-message_editor.control_step()
-message_editor.adjust_width(resize_detection=false, retreat_detection=true)
-let user_list = new Rolling('#user-list')
-user_list.control_step()
-user_list.adjust_width(resize_detection=true, retreat_detection=false)

@@ -14,7 +14,7 @@ function get_users() {
         $(window).resize()
     })
     .fail(function(xhr, status) {
-        console.log("get_users ERROR", xhr.status, ':', status);
+        console.log("get_users FAIL", xhr.status, ':', status);
     })
 }
 get_users()

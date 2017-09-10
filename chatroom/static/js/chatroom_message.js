@@ -1,17 +1,20 @@
-// initial
-let date = new Date()
-console.log(date);
-let init_time = '%Y-%m-%d %H:%M:%S'
-let add_zero = s => String(s).length === 2 ? s : '0' + String(s)
-init_time = init_time.replace('%Y', date.getFullYear())
-init_time = init_time.replace('%m', add_zero(date.getMonth() + 1))
-init_time = init_time.replace('%d', add_zero(date.getDate()))
-init_time = init_time.replace('%H', add_zero(date.getHours()))
-init_time = init_time.replace('%M', add_zero(date.getMinutes()))
-init_time = init_time.replace('%S', add_zero(date.getSeconds()))
-$('.message-time').text(init_time)
-init_time += String(date.getMilliseconds())
-$('.message-wrapper').attr('id', init_time)
+// initial time
+$(document).ready(function() {
+    let date = new Date()
+    let init_time = '%Y-%m-%d %H:%M:%S'
+    let add_zero = s => String(s).length === 2 ? s : '0' + String(s)
+    init_time = init_time.replace('%Y', date.getFullYear())
+    init_time = init_time.replace('%m', add_zero(date.getMonth() + 1))
+    init_time = init_time.replace('%d', add_zero(date.getDate()))
+    init_time = init_time.replace('%H', add_zero(date.getHours()))
+    init_time = init_time.replace('%M', add_zero(date.getMinutes()))
+    init_time = init_time.replace('%S', add_zero(date.getSeconds()))
+    $('.message-time').text(init_time)
+    init_time += String(date.getMilliseconds())
+    $('.message-wrapper').attr('id', init_time)
+
+    get_messages()
+})
 
 // ========== get messages ==========
 function get_messages() {
@@ -28,8 +31,16 @@ function get_messages() {
             let time_str = `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0]}</div>`
             let content_str = `<div class="message-content"><span class="user-name">${message.sender}</span>`
             content_str += `@<span class="user-ip">${message.sender_ip}</span>`
-            content_str += ` : <span class="message-text">${message.text}</span></div></div>`
+            if (message.is_file) {
+                content_str += ` : <span class="message-text"><span class="upload-mark"></span> <a class="uploaded-file" href="static/upload/${message.text}">${message.text}</a></span></div></div>`
+            } else {
+                content_str += ` : <span class="message-text">${message.text}</span></div></div>`
+            }
             $('#message-list').append(time_str + content_str)
+
+            let fs = Number($('html').css('font-size').slice(0,-2))
+            let ele = $($('#message-list').children().slice(-1)[0])
+            limit_height(ele,fs)
         })
         // scroll to bottom
         $('#message-list').scrollTop($('#message-list')[0].scrollHeight)
@@ -42,11 +53,10 @@ function get_messages() {
 
             get_messages() // Automatically re-query
         } else {
-            console.log("get_messages ERROR", xhr.status, ':', status);
+            console.log("get_messages FAIL", xhr.status, ':', status);
         }
     })
 }
-get_messages()
 
 // ========== send my message ==========
 $('#message-editor').keydown(function(event) {
@@ -77,7 +87,6 @@ $('#send-my-message').submit(function(event) {
     $.ajax({
         url: '/send_my_message',
         method: 'POST',
-        dataType: 'html',
         data: form.serialize()
     })
     .done(function(response) {
@@ -85,6 +94,6 @@ $('#send-my-message').submit(function(event) {
         // alert(response)
     })
     .fail(function() {
-        console.log("send my message ERROR");
+        console.log("send my message FAIL");
     })
 })

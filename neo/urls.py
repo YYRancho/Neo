@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^get_my_ip$', chatroom_view.get_my_ip),
     url(r'^get_messages$', chatroom_view.get_messages),
     url(r'^send_my_message$', chatroom_view.send_my_message),
+    url(r'^upload_my_file$', chatroom_view.upload_my_file),
     url(r'^get_users$', chatroom_view.get_users),
 ]

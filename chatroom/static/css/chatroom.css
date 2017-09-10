@@ -8,7 +8,7 @@ body {
     height: 100%;
     font-family: "Ubuntu";
     margin: 0px 0px;
-    /*background-image: url('/static/images/iron-man.jpg');*/
+    background-image: url('/static/images/iron-man.jpg');
     background-color: rgb(45,45,45);
     background-position: center center;
     background-size: cover;
@@ -16,8 +16,15 @@ body {
     line-height: 2rem;
     overflow-y: hidden;
 }
-a {
-    text-decoration: none;
+/* set a solid color layer with a certain degree of transparency in the background */
+body:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -1;
 }
 .container {
     margin: 5px 15px 5px 15px;
@@ -77,8 +84,24 @@ a {
 .message-time {
     color: #EF4C84;
 }
-.tip .user-name {
+.monospaced {
     font-family: "Dejavu Sans Mono"; /* monospaced font */
+}
+.upload-mark::before {
+    padding: 0 5px;
+    content: 'UPLOAD';
+    font-weight: 500;
+    background-color: #ff5722;
+    box-shadow: 0px 1px 3px grey;
+    font-size: 14px;
+}
+.uploaded-file {
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0px 1px #ff5722;
+}
+.uploaded-file:hover {
+    box-shadow: 0px 3px #ff5722;
 }
 
 /*editor pane*/
@@ -129,6 +152,9 @@ button {
     text-align: center;
     font-size: 1rem;
     line-height: 8rem; /* minimum line height = minimum height*/
+}
+.file-area {
+    background-color: rgba(255,255,255,0.5) !important;
 }
 
 /* ========== rightbar ========== */
