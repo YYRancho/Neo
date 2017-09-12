@@ -126,6 +126,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-
-# Set max size = 30M
-DATA_UPLOAD_MAX_MEMORY_SIZE = 30*1024*1024

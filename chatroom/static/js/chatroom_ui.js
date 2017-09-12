@@ -62,7 +62,7 @@ function limit_height(ele,font_size) {
     after some layout changes
     */
     ele.height('')
-    ele.height(String(Math.floor(ele.height()/font_size)) + 'rem')
+    ele.height(Math.floor(ele.height()/font_size) + 'rem')
 }
 
 // ========== scroll control ==========

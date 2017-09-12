@@ -8,7 +8,7 @@ body {
     height: 100%;
     font-family: "Ubuntu";
     margin: 0px 0px;
-    background-image: url('/static/images/iron-man.jpg');
+    /*background-image: url('/static/images/iron-man.jpg');*/
     background-color: rgb(45,45,45);
     background-position: center center;
     background-size: cover;
@@ -17,7 +17,7 @@ body {
     overflow-y: hidden;
 }
 /* set a solid color layer with a certain degree of transparency in the background */
-body:after {
+/*body:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -25,7 +25,7 @@ body:after {
     background-color: black;
     opacity: 0.5;
     z-index: -1;
-}
+}*/
 .container {
     margin: 5px 15px 5px 15px;
 }
@@ -87,9 +87,8 @@ body:after {
 .monospaced {
     font-family: "Dejavu Sans Mono"; /* monospaced font */
 }
-.upload-mark::before {
+.mark {
     padding: 0 5px;
-    content: 'UPLOAD';
     font-weight: 500;
     background-color: #ff5722;
     box-shadow: 0px 1px 3px grey;
@@ -103,6 +102,16 @@ body:after {
 .uploaded-file:hover {
     box-shadow: 0px 3px #ff5722;
 }
+progress {
+    box-shadow: 0px 1px 3px grey;
+    /*width: 160px;
+    border: 1px solid #0064B4;*/
+    background-color: #e6e6e6;
+    color: #ecc12c; /*IE10*/
+}
+progress::-moz-progress-bar { background: #ecc12c; }
+progress::-webkit-progress-bar { background: #e6e6e6; }
+progress::-webkit-progress-value  { background: #ecc12c; }
 
 /*editor pane*/
 .my-pane {

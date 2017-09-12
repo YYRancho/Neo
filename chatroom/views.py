@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from chatroom.models import User
 from chatroom.models import Message
 
@@ -38,13 +39,14 @@ def send_my_message(request):
     Message.objects.create(time=datetime.datetime.now(),sender=name,sender_ip=ip,is_file=False,text=entered_message)
     return HttpResponse('The message was sent successfully!\nSender : %s@%s\nMessage text : %s' % (name,ip,entered_message))
 
+@csrf_exempt
 def upload_my_file(request):
     user_name = request.POST['user_name']
     ip = request.POST['ip']
-    file_name = request.POST['file_name']
-    file_content = request.POST['file_content']
+    file_name = request.FILES['file'].name
     with open('chatroom/static/upload/'+file_name,'w') as f:
-        f.write(base64.b64decode(file_content))
+        for chunk in request.FILES['file'].chunks(chunk_size = 10*1024*1024):
+            f.write(chunk)
     Message.objects.create(time=datetime.datetime.now(),sender=user_name,sender_ip=ip,is_file=True,text=file_name)
     return HttpResponse('The file was uploaded successfully!\nSender : %s@%s\nContent : %s' % (user_name, ip, file_name))
 

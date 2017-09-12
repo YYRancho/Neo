@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="/static/images/download.png" />
     <title>Neo's Chatroom</title>
 
+    <!-- font awesome -->
+    <link href="{% static "vendors/font-awesome-4.7.0/css/font-awesome.css"%}" rel="stylesheet" />
+
     <link href="/static/css/chatroom.css" rel="stylesheet" />
 </head>
 
@@ -68,7 +71,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="name" />
                     <input type="hidden" name="ip" />
-                    <textarea name="entered-message" form="send-my-message" id="message-editor" class="rolling" placeholder="Press [Ctrl] + [Enter] to send your message"></textarea>
+                    <textarea name="entered-message" form="send-my-message" id="message-editor" class="rolling" placeholder="Press [Ctrl] + [Enter] to send your message or drag your files here for uploading"></textarea>
                 </form>
             </div>
         </div>

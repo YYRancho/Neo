@@ -1,20 +1,25 @@
 // initial time
 $(document).ready(function() {
-    let date = new Date()
-    let init_time = '%Y-%m-%d %H:%M:%S'
-    let add_zero = s => String(s).length === 2 ? s : '0' + String(s)
-    init_time = init_time.replace('%Y', date.getFullYear())
-    init_time = init_time.replace('%m', add_zero(date.getMonth() + 1))
-    init_time = init_time.replace('%d', add_zero(date.getDate()))
-    init_time = init_time.replace('%H', add_zero(date.getHours()))
-    init_time = init_time.replace('%M', add_zero(date.getMinutes()))
-    init_time = init_time.replace('%S', add_zero(date.getSeconds()))
-    $('.message-time').text(init_time)
-    init_time += String(date.getMilliseconds())
-    $('.message-wrapper').attr('id', init_time)
+    let time_now = format_time_now()
+    $('.message-time').text(time_now.split('.')[0])
+    $('.message-wrapper').attr('id', time_now)
 
     get_messages()
 })
+
+function format_time_now() {
+    let date = new Date()
+    let time_now = '%Y-%m-%d %H:%M:%S'
+    let add_zero = s => String(s).length === 2 ? s : '0' + String(s)
+    time_now = time_now.replace('%Y', date.getFullYear())
+    time_now = time_now.replace('%m', add_zero(date.getMonth() + 1))
+    time_now = time_now.replace('%d', add_zero(date.getDate()))
+    time_now = time_now.replace('%H', add_zero(date.getHours()))
+    time_now = time_now.replace('%M', add_zero(date.getMinutes()))
+    time_now = time_now.replace('%S', add_zero(date.getSeconds()))
+    time_now += '.' + String(date.getMilliseconds())
+    return time_now
+}
 
 // ========== get messages ==========
 function get_messages() {
@@ -32,7 +37,7 @@ function get_messages() {
             let content_str = `<div class="message-content"><span class="user-name">${message.sender}</span>`
             content_str += `@<span class="user-ip">${message.sender_ip}</span>`
             if (message.is_file) {
-                content_str += ` : <span class="message-text"><span class="upload-mark"></span> <a class="uploaded-file" href="static/upload/${message.text}">${message.text}</a></span></div></div>`
+                content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a class="uploaded-file" href="static/upload/${message.text}">${message.text}</a></span></div></div>`
             } else {
                 content_str += ` : <span class="message-text">${message.text}</span></div></div>`
             }
