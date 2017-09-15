@@ -1,16 +1,18 @@
+'use strict';
+
 // ========== initial ==========
 $(document).ready(function() {
     $(window).resize()
 
     let message_list = new Rolling('#message-list')
     message_list.control_step()
-    message_list.adjust_width(resize_detection=false, retreat_detection=false)
+    message_list.adjust_width(false, false)
     let message_editor = new Rolling('#message-editor')
     message_editor.control_step()
-    message_editor.adjust_width(resize_detection=false, retreat_detection=true)
+    message_editor.adjust_width(false, true)
     let user_list = new Rolling('#user-list')
     user_list.control_step()
-    user_list.adjust_width(resize_detection=true, retreat_detection=false)
+    user_list.adjust_width(true, false)
 })
 
 // ========== Draw dividers and keep layout aligned ==========

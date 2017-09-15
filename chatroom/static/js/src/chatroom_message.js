@@ -1,3 +1,5 @@
+'use strict';
+
 // initial time
 $(document).ready(function() {
     let time_now = format_time_now()
@@ -52,13 +54,13 @@ function get_messages() {
 
         get_messages() // Automatically re-query
     })
-    .fail(function(xhr, status) {
+    .fail(function(xhr, status, error) {
         if (status === 'timeout') {
             console.log('get_messages timeout');
 
             get_messages() // Automatically re-query
         } else {
-            console.log("get_messages FAIL", xhr.status, ':', status);
+            console.log("get_messages FAIL:", xhr.status, status, '\n', error);
         }
     })
 }
@@ -75,14 +77,13 @@ $('#message-editor').keydown(function(event) {
         get_my_ip()
 
         let message_editor = $(this)
-        let message_text = message_editor.html()
+        let message_text = message_editor.val()
         if (message_text.length > 1000) {
             alert('Your message can not be longer than 1000 characters!')
-            message_editor.html(message_text.substr(0,1000))
+            message_editor.val(message_text.substr(0,1000))
             return
         }
         $('#send-my-message').submit()
-        $('#message-list').append(message_text)
         message_editor.blur() /*stop focusing*/
     }
 })
@@ -96,9 +97,8 @@ $('#send-my-message').submit(function(event) {
     })
     .done(function(response) {
         console.log("send my message SUCCESS");
-        // alert(response)
     })
-    .fail(function() {
-        console.log("send my message FAIL");
+    .fail(function(xhr, status, error) {
+        console.log("send my message FAIL:", xhr.status, status, '\n', error);
     })
 })

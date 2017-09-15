@@ -1,0 +1,23 @@
+{
+  "name": "neo",
+  "version": "1.0.0",
+  "description": "A website for tech and fun, powered by [django](https://github.com/django/django)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel chatroom/static/js/src -d chatroom/static/js/lib -s"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}

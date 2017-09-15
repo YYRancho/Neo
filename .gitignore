@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/
 lib64/
 parts/
 sdist/
@@ -104,3 +104,4 @@ db.sqlite3
 migrations/
 upload/
 .tern-project
+node_modules/

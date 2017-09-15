@@ -1,3 +1,5 @@
+'use strict';
+
 // ========== generate name randomly and get ip ==========
 $(document).ready(function() {
     let my_name = Math.random().toString(36).substr(2).replace(/\d/g,'')

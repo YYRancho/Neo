@@ -1,3 +1,5 @@
+'use strict';
+
 $('textarea').on('drop', function(event) {
     event.preventDefault();
     $(this).removeClass('file-area')
@@ -30,6 +32,7 @@ $('textarea').on('drop', function(event) {
     }
 })
 $('textarea').on('dragenter', function(event) {
+    console.log('dragenter');
     event.preventDefault();
     $(this).addClass('file-area')
     $('#send-my-message').append('<i class="fa fa-upload fa-5x" style="position:absolute;"></i>')
@@ -39,9 +42,14 @@ $('textarea').on('dragenter', function(event) {
     })
 })
 $('textarea').on('dragleave', function(event) {
+    console.log('dragleave');
     event.preventDefault();
     $(this).removeClass('file-area')
     $('.fa-upload').remove()
+})
+$('textarea').on('dragover', function(event) {
+    console.log('dragover');
+    event.preventDefault();
 })
 
 function upload_my_file(file, id) {
@@ -57,7 +65,7 @@ function upload_my_file(file, id) {
         contentType: false,
         processData: false,
         xhr: function() {
-            xhr = $.ajaxSettings.xhr()
+            let xhr = $.ajaxSettings.xhr()
             xhr.upload.onloadstart = function(e) {
                 $(`#${id} .mark`).text('UPLOADING...')
             }
@@ -78,7 +86,7 @@ function upload_my_file(file, id) {
         console.log("upload my file SUCCESS");
         console.log(response);
     })
-    .fail(function(xhr, status) {
-        console.log("upload my file FAIL", xhr.status, ':', status);
+    .fail(function(xhr, status, error) {
+        console.log("upload my file FAIL:", xhr.status, status, '\n', error);
     })
 }
