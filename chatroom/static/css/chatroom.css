@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/static/fonts/Ubuntu-R-webfont.woff') format('woff'),
+    url('/static/fonts/Ubuntu-R-webfont.ttf') format('truetype'),
+    url('/static/fonts/Ubuntu-R-webfont.svg') format('svg'),
+    url('/static/fonts/Ubuntu-R-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
+@font-face {
+    font-family: 'Dejavu Sans Mono';
+    src:url('/static/fonts/dejavusansmono-webfont.woff') format('woff'),
+    url('/static/fonts/dejavusansmono-webfont.ttf') format('truetype'),
+    url('/static/fonts/dejavusansmono-webfont.svg') format('svg'),
+    url('/static/fonts/dejavusansmono-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
 html {
     height: 100%;
     font-size: 16px; /* in order to use rem unit*/
@@ -87,6 +101,7 @@ body {
 .message-arrow {
     font-weight: bold;
     color: #f5ff00;
+    padding-right: 1px;
 }
 .monospaced {
     font-family: "Dejavu Sans Mono"; /* monospaced font */
