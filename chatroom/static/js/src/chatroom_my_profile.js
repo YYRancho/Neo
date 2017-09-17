@@ -14,7 +14,7 @@ $('#name-editor').keydown(function(event) {
     if (event.keyCode === 13) {
         event.preventDefault() /*prevent wrapping automatically*/
         if (detect_name('#name-editor')) {
-            my_name = $(this).text()
+            let my_name = $(this).text()
             console.log("update my name SUCCESS");
             console.log(my_name);
             alert(`Name update completed!\nNew name : ${my_name}`)

@@ -22,11 +22,11 @@ function get_users() {
 get_users()
 
 // generate random string
-let random_str = Math.random().toString(36).substr(2) + ' '
-for (let i = 0; i < 6; i++) {
-    random_str += Math.random().toString(36).substr(2) + ' '
-}
-$('textarea').val(random_str)
+// let random_str = Math.random().toString(36).substr(2) + ' '
+// for (let i = 0; i < 6; i++) {
+//     random_str += Math.random().toString(36).substr(2) + ' '
+// }
+// $('textarea').val(random_str)
 
 // ========== function pane ==========
 $('#scroll-top').click(function(event) {

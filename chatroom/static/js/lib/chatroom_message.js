@@ -37,16 +37,28 @@ function get_messages() {
     }).done(function (messages) {
         console.log('get_messages SUCCESS');
         messages.forEach(function (message) {
-            var time_str = '<div id="' + message.time + '" class="message-wrapper"><div class="message-time">' + message.time.split('.')[0] + '</div>';
+            var time_str = '<div id="${message.time}" class="message-wrapper">';
+            // determine whether the new message is sent by user self
+            if ($('#name-editor').text() === message.sender && $('#my-ip').text() === message.sender_ip) {
+                time_str += '<div id="' + message.time + '" class="message-wrapper"><div class="message-time">' + message.time.split('.')[0].split(' ')[1];
+                time_str += '&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                time_str += '<span class="message-arrow">\u27A2\u27A3\u27A4</span></div>';
+            } else {
+                time_str += '<div id="' + message.time + '" class="message-wrapper"><div class="message-time">' + message.time.split('.')[0] + '</div>';
+            }
+
             var content_str = '<div class="message-content"><span class="user-name">' + message.sender + '</span>';
             content_str += '@<span class="user-ip">' + message.sender_ip + '</span>';
+            // determine whether the new message is file uploading
             if (message.is_file) {
                 content_str += ' : <span class="message-text"><span class="mark">UPLOAD</span> <a class="uploaded-file" href="static/upload/' + message.text + '">' + message.text + '</a></span></div></div>';
             } else {
                 content_str += ' : <span class="message-text">' + message.text + '</span></div></div>';
             }
+
             $('#message-list').append(time_str + content_str);
 
+            // limit the height of the new message
             var fs = Number($('html').css('font-size').slice(0, -2));
             var ele = $($('#message-list').children().slice(-1)[0]);
             limit_height(ele, fs);
@@ -85,7 +97,6 @@ $('#message-editor').keydown(function (event) {
             return;
         }
         $('#send-my-message').submit();
-        message_editor.blur(); /*stop focusing*/
     }
 });
 $('#send-my-message').submit(function (event) {
@@ -97,6 +108,7 @@ $('#send-my-message').submit(function (event) {
         data: form.serialize()
     }).done(function (response) {
         console.log("send my message SUCCESS");
+        $('#message-editor').val("");
     }).fail(function (xhr, status, error) {
         console.log("send my message FAIL:", xhr.status, status, '\n', error);
     });
