@@ -49,7 +49,7 @@ function get_messages() {
             content_str += `@<span class="user-ip">${message.sender_ip}</span>`
             // determine whether the new message is file uploading
             if (message.is_file) {
-                content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a class="uploaded-file" href="static/upload/${message.text}">${message.text}</a></span></div></div>`
+                content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a class="uploaded-file" href="static/upload/${message.text}" target="_blank">${message.text}</a></span></div></div>`
             } else {
                 content_str += ` : <span class="message-text">${message.text}</span></div></div>`
             }
