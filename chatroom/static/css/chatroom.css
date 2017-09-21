@@ -43,6 +43,14 @@ body {
 .container {
     margin: 5px 15px 5px 15px;
 }
+a {
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0px 1px #ff5722;
+}
+a:hover {
+    box-shadow: 0px 3px #ff5722;
+}
 
 /*rolling*/
 .rolling {
@@ -113,14 +121,6 @@ body {
     box-shadow: 0px 1px 3px grey;
     font-size: 14px;
 }
-.uploaded-file {
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0px 1px #ff5722;
-}
-.uploaded-file:hover {
-    box-shadow: 0px 3px #ff5722;
-}
 progress {
     box-shadow: 0px 1px 3px grey;
     /*width: 160px;
@@ -177,6 +177,7 @@ button {
     resize: none;
 }
 .my-message>textarea::placeholder {
+    font-family: "Ubuntu";
     text-align: center;
     font-size: 1rem;
     line-height: 8rem; /* minimum line height = minimum height*/

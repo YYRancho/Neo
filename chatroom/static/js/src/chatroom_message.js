@@ -35,7 +35,7 @@ function get_messages() {
     .done(function(messages) {
         console.log('get_messages SUCCESS');
         messages.forEach(function(message) {
-            let time_str = '<div id="${message.time}" class="message-wrapper">'
+            let time_str = ''
             // determine whether the new message is sent by the user self
             if ($('#name-editor').text() === message.sender && $('#my-ip').text() === message.sender_ip) {
                 time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0].split(' ')[1]}`
@@ -49,10 +49,18 @@ function get_messages() {
             content_str += `@<span class="user-ip">${message.sender_ip}</span>`
             // determine whether the new message is file uploading
             if (message.is_file) {
-                content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a class="uploaded-file" href="static/upload/${message.text}" target="_blank">${message.text}</a></span></div></div>`
+                content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a href="static/upload/${message.text}">${message.text}</a></span></div></div>`
             } else {
                 content_str += ` : <span class="message-text">${message.text}</span></div></div>`
             }
+            // process format
+            // process '\n'
+            content_str = content_str.replace(/\n/g, '<br/>')
+            // process url
+            let url_reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+            content_str = content_str.replace(url_reg, '<a href="$1$2">$1$2</a>')
+            // make all links open in a new tab
+            content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
 
             $('#message-list').append(time_str + content_str)
 
