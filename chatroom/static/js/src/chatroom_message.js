@@ -57,7 +57,7 @@ function get_messages() {
             // process '\n'
             content_str = content_str.replace(/\n/g, '<br/>')
             // process url
-            let url_reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+            let url_reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-|:)+)/g
             content_str = content_str.replace(url_reg, '<a href="$1$2">$1$2</a>')
             // make all links open in a new tab
             content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
