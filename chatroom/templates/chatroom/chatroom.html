@@ -2,16 +2,16 @@
 <html>
 
 <head>
-    {% load staticfiles %}
+    {% load static %}
 
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="/static/images/download.png" />
+    <link rel="shortcut icon" href="{% static "images/download.png"%}" />
     <title>Neo's Chatroom</title>
 
     <!-- font awesome -->
     <link href="{% static "vendors/font-awesome-4.7.0/css/font-awesome.css"%}" rel="stylesheet" />
 
-    <link href="/static/css/chatroom.css" rel="stylesheet" />
+    <link href="{% static "css/chatroom.css"%}" rel="stylesheet" />
 </head>
 
 <body>
@@ -98,11 +98,11 @@
         })
     </script>
 
-    <script src="/static/js/lib/chatroom_ui.js"></script>
-    <script src="/static/js/lib/chatroom_my_profile.js"></script>
-    <script src="/static/js/lib/chatroom_message.js"></script>
-    <script src="/static/js/lib/chatroom_file.js"></script>
-    <script src="/static/js/lib/chatroom.js"></script>
+    <script src="{% static "js/lib/chatroom_ui.js"%}"></script>
+    <script src="{% static "js/lib/chatroom_my_profile.js"%}"></script>
+    <script src="{% static "js/lib/chatroom_message.js"%}"></script>
+    <script src="{% static "js/lib/chatroom_file.js"%}"></script>
+    <script src="{% static "js/lib/chatroom.js"%}"></script>
 
 </body>
 
