@@ -33,9 +33,6 @@ $(window).resize(function(event) {
         limit_height(ele,fs)
     })
 
-    // set textarea placeholder vertical alignment
-    $('head').append(`<style type="text/css">textarea::placeholder {line-height:${$('#send-my-message').height()}px !important;}</style>`)
-
     // layout alignment
     $('.function-pane').width($('.message-time').width())
 

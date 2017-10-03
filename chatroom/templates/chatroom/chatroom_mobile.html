@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="{% static "images/download.png"%}" />
+    <title>Neo's Chatroom</title>
+
+    <link href="{% static "css/chatroom_mobile.css"%}" rel="stylesheet" />
+</head>
+
+<body class="container">
+    <div class="main-content">
+        <div class="message-pane">
+            <div id="message-list">
+                <div class="message-wrapper">
+                    <div class="message-time">
+                        2017-03-13 00:00:00
+                    </div>
+                    <div class="message-content">
+                        <span class="user-name monospaced">Neo</span>@<span class="user-ip">0.0.0.0</span> :
+                        <span>Welcome to The Matrix</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-pane">
+            <div class="editor-pane">
+                <div class="my-identity">
+                    <span contenteditable="true"  spellcheck="false" id="name-editor" class="user-name">Ladykiller</span>@<span id="my-ip" class="user-ip">10.199.199.199</span>
+                </div>
+                <form id="send-my-message" class="my-message">
+                    {% csrf_token %}
+                    <input type="hidden" name="name" />
+                    <input type="hidden" name="ip" />
+                    <textarea name="entered-message" form="send-my-message" id="message-editor"></textarea>
+                    <input type="submit" value="Send" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- babel-polyfill -->
+
+    <!-- jQuery -->
+    <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
+
+    <!-- django csrf preotection -->
+    <script>
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+        })
+    </script>
+
+    <!-- push.js -->
+    <script src="{% static "vendors/push.js/push.js"%}"></script>
+
+    <script src="{% static "js/lib/chatroom_my_profile.js"%}"></script>
+    <script src="{% static "js/lib/chatroom_message.js"%}"></script>
+
+    <script src="{% static "js/lib/chatroom_mobile.js"%}"></script>
+</body>
+
+</html>

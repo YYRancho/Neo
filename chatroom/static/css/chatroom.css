@@ -88,6 +88,8 @@ a:hover {
     word-wrap: break-word;
     word-break: break-word;
 }
+
+/*message pane*/
 .message-pane {
     height: calc(100% - 12rem);
     overflow-x: hidden;
@@ -142,6 +144,7 @@ progress::-webkit-progress-value  { background: #ecc12c; }
 button {
     width: 100%;
     background: none;
+    margin: 0;
     border: none;
     padding: 0;
     color: #fff;
@@ -157,7 +160,7 @@ button {
     background-color: #513a70;
 }
 .my-message {
-    height: calc(100% - 2rem);
+    height: 10rem;
     overflow-x: hidden;
     overflow-y: hidden; /* prevent vertical scroll bar appearing **when textarea is used** although nothing is covered(unknown reason)*/
 }
@@ -167,6 +170,7 @@ button {
     caret-color: #EF4C84;
 }
 .my-message>textarea {
+    font-family: "Ubuntu";
     font-size: 1rem;
     line-height: 2rem;
     border: none;
@@ -180,7 +184,25 @@ button {
     font-family: "Ubuntu";
     text-align: center;
     font-size: 1rem;
-    line-height: 8rem; /* minimum line height = minimum height*/
+    line-height: 10rem; /* minimum line height = minimum height*/
+}
+.my-message>textarea::-webkit-input-placeholder {
+    font-family: "Ubuntu";
+    text-align: center;
+    font-size: 1rem;
+    line-height: 10rem; /* minimum line height = minimum height*/
+}
+.my-message>textarea::-moz-placeholder{
+    font-family: "Ubuntu";
+    text-align: center;
+    font-size: 1rem;
+    line-height: 10rem; /* minimum line height = minimum height*/
+}
+.my-message>textarea:-ms-input-placeholder{
+    font-family: "Ubuntu";
+    text-align: center;
+    font-size: 1rem;
+    line-height: 10rem; /* minimum line height = minimum height*/
 }
 .file-area {
     background-color: rgba(255,255,255,0.5) !important;

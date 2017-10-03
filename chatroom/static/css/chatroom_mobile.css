@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/static/fonts/Ubuntu-R-webfont.woff') format('woff'),
+    url('/static/fonts/Ubuntu-R-webfont.ttf') format('truetype'),
+    url('/static/fonts/Ubuntu-R-webfont.svg') format('svg'),
+    url('/static/fonts/Ubuntu-R-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
+@font-face {
+    font-family: 'Dejavu Sans Mono';
+    src:url('/static/fonts/dejavusansmono-webfont.woff') format('woff'),
+    url('/static/fonts/dejavusansmono-webfont.ttf') format('truetype'),
+    url('/static/fonts/dejavusansmono-webfont.svg') format('svg'),
+    url('/static/fonts/dejavusansmono-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
+html {
+    height: 100%;
+    font-size: 40px; /*in order to use rem unit*/
+    -webkit-text-size-adjust: none; /*prevent font boosting of webkit*/
+}
+body {
+    height: 98%;
+    font-family: "Ubuntu";
+    margin: 0px 0px;
+    /*background-image: url('/static/images/iron-man.jpg');*/
+    background-color: rgb(45,45,45);
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    line-height: 2rem;
+    overflow-y: hidden;
+}
+.container {
+    margin: 10px 30px 10px 30px;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0px 1px #ff5722;
+}
+a:hover {
+    box-shadow: 0px 3px #ff5722;
+}
+
+/*user label*/
+.user-name {
+    font-weight: bold;
+    color: #32B0D6;
+}
+.user-ip {
+    color: #E8DE08;
+}
+
+/* ========== content ========== */
+
+/*message pane*/
+.main-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+.message-pane {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+}
+.message-time {
+    color: grey;
+    text-align: center;
+}
+.message-arrow {
+    font-weight: bold;
+    color: #f5ff00;
+    padding-right: 1px;
+}
+.mark {
+    padding: 0 5px;
+    font-weight: 500;
+    background-color: #ff5722;
+    box-shadow: 0px 1px 3px grey;
+}
+
+/*editor pane*/
+.my-pane {
+    flex: 0 0 auto;
+}
+.my-identity {
+    text-align: center;
+    background-color: #513a70;
+}
+.my-message {
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+textarea, input[type=submit] {
+    font-family: "Ubuntu";
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+textarea {
+    flex: 1 1 auto;
+    height: 100%;
+    font-family: "Ubuntu";
+    border: none;
+    padding: 0;
+    background: transparent;
+    outline: none;
+    color: #fff;
+    resize: none;
+}
+input[type=submit] {
+    flex: 0 0 auto;
+    width: 4rem;
+    -webkit-appearance: none; /*abandon the default style of safari*/
+    border-radius: 100px;
+    font-family: "Ubuntu";
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: green;
+}
+input[type=submit]:hover {
+    background-color: #016738;
+}

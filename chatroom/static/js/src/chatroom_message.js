@@ -44,46 +44,7 @@ function get_messages() {
     .done(function(messages) {
         console.log('get_messages SUCCESS');
         messages.forEach(function(message) {
-            let content_str = `<div class="message-content"><span class="user-name">${message.sender}</span>`
-            content_str += `@<span class="user-ip">${message.sender_ip}</span>`
-            // determine whether the new message is file uploading
-            if (message.is_file) {
-                content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a href="static/upload/${message.text}">${message.text}</a></span></div></div>`
-            } else {
-                content_str += ` : <span class="message-text">${message.text}</span></div></div>`
-            }
-            // process format
-            // process '\n'
-            content_str = content_str.replace(/\n/g, '<br/>')
-            // process url
-            let url_reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-|:)+)/g
-            content_str = content_str.replace(url_reg, '<a href="$1$2">$1$2</a>')
-            // make all links open in a new tab
-            content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
-
-            let time_str = ''
-            // determine whether the new message is sent by the user self
-            if ($('#name-editor').text() === message.sender && $('#my-ip').text() === message.sender_ip) {
-                time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0].split(' ')[1]}`
-                time_str += '&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-                time_str += `<span class="message-arrow">➢➣➤</span></div>`
-            } else {
-                time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0]}</div>`
-                // notify if the current tab is not active
-                if (!active_flag) {
-                    Push.create(`${message.sender}@${message.sender_ip}`, {
-                        body: message.text,
-                        icon: '/static/images/download.png',
-                        timeout: 6000,
-                        onClick: function() {
-                            window.focus()
-                            this.close()
-                        }
-                    })
-                }
-            }
-
-            $('#message-list').append(time_str + content_str)
+            $('#message-list').append(format_message(message))
 
             // limit the height of the new message
             let fs = Number($('html').css('font-size').slice(0,-2))
@@ -105,30 +66,78 @@ function get_messages() {
         }
     })
 }
+function format_message(message) {
+    let content_str = `<div class="message-content"><span class="user-name">${message.sender}</span>`
+    content_str += `@<span class="user-ip">${message.sender_ip}</span>`
+    // determine whether the new message is file uploading
+    if (message.is_file) {
+        content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a href="static/upload/${message.text}">${message.text}</a></span></div></div>`
+    } else {
+        content_str += ` : <span class="message-text">${message.text}</span></div></div>`
+    }
+    // process format
+    // process '\n'
+    content_str = content_str.replace(/\n/g, '<br/>')
+    // process url
+    let url_reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-|:)+)/g
+    content_str = content_str.replace(url_reg, '<a href="$1$2">$1$2</a>')
+    // make all links open in a new tab
+    content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
+
+    let time_str = ''
+    // determine whether the new message is sent by the user self
+    if ($('#name-editor').text() === message.sender && $('#my-ip').text() === message.sender_ip) {
+        time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0].split(' ')[1]}`
+        time_str += '&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        time_str += `<span class="message-arrow">➢➣➤</span></div>`
+    } else {
+        time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0]}</div>`
+        // notify if the current tab is not active
+        if (!active_flag) {
+            Push.create(`${message.sender}@${message.sender_ip}`, {
+                body: message.text,
+                icon: '/static/images/download.png',
+                timeout: 6000,
+                onClick: function() {
+                    window.focus()
+                    this.close()
+                }
+            })
+        }
+    }
+
+    return time_str + content_str
+}
 
 // ========== send my message ==========
 $('#message-editor').keydown(function(event) {
     if (event.ctrlKey && event.keyCode === 13) {
         event.preventDefault() /*prevent wrapping automatically*/
-        if (detect_name('#name-editor')) {
-            $('input[name=name]').val($('#name-editor').text())
-        } else {
-            return
-        }
-        get_my_ip()
-
-        let message_editor = $(this)
-        let message_text = message_editor.val()
-        if (message_text.length > 1000) {
-            alert('Your message can not be longer than 1000 characters!')
-            message_editor.val(message_text.substr(0,1000))
-            return
-        }
         $('#send-my-message').submit()
     }
 })
 $('#send-my-message').submit(function(event) {
     event.preventDefault() /* prevent page jump*/
+
+    let message_editor = $('#message-editor')
+    let message_text = message_editor.val()
+    if (message_text.length > 1000) {
+        alert('Your message can not be longer than 1000 characters!')
+        message_editor.val(message_text.substr(0,1000))
+        return
+    }
+    if (message_text.length == 0) {
+        alert('Blank text can not be sent!')
+        return
+    }
+
+    if (detect_name('#name-editor')) {
+        $('input[name=name]').val($('#name-editor').text())
+    } else {
+        return
+    }
+    get_my_ip()
+
     let form = $(this)
     $.ajax({
         url: '/send_my_message',

@@ -37,6 +37,10 @@ function detect_name(selector) {
         name_editor.text(name_text.substr(0,30))
         return false
     }
+    if (name_text.length < 3) {
+        alert('Your name is too short!')
+        return false
+    }
     return true
 }
 

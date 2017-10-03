@@ -10,10 +10,15 @@ from chatroom.models import Message
 import json
 import datetime
 import time
-import base64
-import random
+
+import user_agents
 
 def get_chatroom(request):
+    if request.META.has_key('HTTP_USER_AGENT'):
+        user_agent = user_agents.parse(request.META['HTTP_USER_AGENT'])
+        if user_agent.is_mobile or user_agent.is_tablet:
+            return render(request, 'chatroom/chatroom_mobile.html')
+
     return render(request, 'chatroom/chatroom.html')
 
 def get_my_ip(request):
