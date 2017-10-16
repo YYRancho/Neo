@@ -35,7 +35,7 @@ window.onblur = function() {
 // ========== get messages ==========
 function get_messages() {
     $.ajax({
-        url: '/get_messages',
+        url: '/chatroom_api/get_messages',
         method: 'GET',
         dataType: 'json',
         data: {last_message_time: $('.message-wrapper').slice(-1)[0].id},
@@ -140,7 +140,7 @@ $('#send-my-message').submit(function(event) {
 
     let form = $(this)
     $.ajax({
-        url: '/send_my_message',
+        url: '/chatroom_api/send_my_message',
         method: 'POST',
         data: form.serialize()
     })

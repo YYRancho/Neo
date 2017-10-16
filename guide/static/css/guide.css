@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/static/fonts/Ubuntu/Ubuntu-R-webfont.woff') format('woff'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.ttf') format('truetype'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.svg') format('svg'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src:url('/static/fonts/Ubuntu Mono/ubuntu-mono-webfont.woff') format('woff'),
+    url('/static/fonts/Ubuntu Mono/ubuntu-mono-webfont.ttf') format('truetype'),
+    url('/static/fonts/Ubuntu Mono/ubuntu-mono-webfont.svg') format('svg'),
+    url('/static/fonts/Ubuntu Mono/ubuntu-mono-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 320px;
+    text-align: center;
+}
+h1 {
+    font-family: "Ubuntu";
+    font-size: 2rem;
+    letter-spacing: 5px;
+    line-height: 3rem;
+}
+h2 {
+    font-family: "Ubuntu Mono";
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 2.5rem;
+}
+.item-wrapper {
+    margin-top: 2rem;
+}
+p {
+    line-height: 2rem;
+}
+a {
+    text-decoration: none;
+    font-family: "Ubuntu";
+    color: grey;
+}
+a:hover{
+    color: dodgerblue;
+}

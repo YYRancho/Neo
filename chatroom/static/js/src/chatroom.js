@@ -3,7 +3,7 @@
 // ========== get user list ==========
 function get_users() {
     $.ajax({
-        url: '/get_users',
+        url: '/chatroom_api/get_users',
         type: 'GET',
         dataType: 'json',
         data: {param1: 'value1'},

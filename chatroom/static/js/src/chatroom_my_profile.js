@@ -45,7 +45,7 @@ function detect_name(selector) {
 }
 
 function get_my_ip(selector) {
-    $.get('/get_my_ip')
+    $.get('/chatroom_api/get_my_ip')
     .done(function(ip) {
         console.log('get my ip SUCCESS');
         $(selector).text(ip)

@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Ubuntu';
-    src:url('/static/fonts/Ubuntu-R-webfont.woff') format('woff'),
-    url('/static/fonts/Ubuntu-R-webfont.ttf') format('truetype'),
-    url('/static/fonts/Ubuntu-R-webfont.svg') format('svg'),
-    url('/static/fonts/Ubuntu-R-webfont.eot') format('embedded-opentype'); /* IE9 */
+    src:url('/static/fonts/Ubuntu/Ubuntu-R-webfont.woff') format('woff'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.ttf') format('truetype'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.svg') format('svg'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.eot') format('embedded-opentype'); /* IE9 */
 }
 @font-face {
     font-family: 'Dejavu Sans Mono';
-    src:url('/static/fonts/dejavusansmono-webfont.woff') format('woff'),
-    url('/static/fonts/dejavusansmono-webfont.ttf') format('truetype'),
-    url('/static/fonts/dejavusansmono-webfont.svg') format('svg'),
-    url('/static/fonts/dejavusansmono-webfont.eot') format('embedded-opentype'); /* IE9 */
+    src:url('/static/fonts/Dejavu Sans Mono/dejavusansmono-webfont.woff') format('woff'),
+    url('/static/fonts/Dejavu Sans Mono/dejavusansmono-webfont.ttf') format('truetype'),
+    url('/static/fonts/Dejavu Sans Mono/dejavusansmono-webfont.svg') format('svg'),
+    url('/static/fonts/Dejavu Sans Mono/dejavusansmono-webfont.eot') format('embedded-opentype'); /* IE9 */
 }
 html {
     height: 100%;

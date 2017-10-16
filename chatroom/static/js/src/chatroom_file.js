@@ -60,7 +60,7 @@ function upload_my_file(file, id) {
 
     $.ajax({
         method: 'POST',
-        url: '/upload_my_file',
+        url: '/chatroom_api/upload_my_file',
         data: fd,
         contentType: false,
         processData: false,
