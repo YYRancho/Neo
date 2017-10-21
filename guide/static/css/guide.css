@@ -21,6 +21,9 @@ html, body {
     margin: 0;
     font-size: 16px;
 }
+body {
+    cursor: url('/static/images/fire-32.png'), auto;
+}
 
 .content-wrapper {
     position: absolute;

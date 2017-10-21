@@ -96,7 +96,7 @@ function format_message(message) {
         if (!active_flag) {
             Push.create(`${message.sender}@${message.sender_ip}`, {
                 body: message.text,
-                icon: '/static/images/download.png',
+                icon: '/static/images/Neo-96.png',
                 timeout: 6000,
                 onClick: function() {
                     window.focus()
