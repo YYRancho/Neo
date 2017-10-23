@@ -19,6 +19,7 @@ from guide import views as guide_view
 from blog import views as blog_view
 from chatroom import views as chatroom_view
 from game import views as game_view
+from cinema import views as cinema_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,4 +36,6 @@ urlpatterns = [
     url(r'^chatroom_api/get_users$', chatroom_view.get_users),
 
     url(r'^game/tetris$', game_view.tetris),
+
+    url(r'^cinema$', cinema_view.get_cinema),
 ]

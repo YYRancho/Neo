@@ -105,3 +105,4 @@ migrations/
 upload/
 .tern-project
 node_modules/
+storage/
