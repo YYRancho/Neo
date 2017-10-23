@@ -102,7 +102,7 @@ ENV/
 venv-neo/
 db.sqlite3
 migrations/
-upload/
 .tern-project
 node_modules/
 storage/
+media/

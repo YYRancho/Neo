@@ -15,6 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+
+# for media directory
+from django.conf import settings
+from django.conf.urls.static import static
+
 from guide import views as guide_view
 from blog import views as blog_view
 from chatroom import views as chatroom_view
@@ -38,4 +43,4 @@ urlpatterns = [
     url(r'^game/tetris$', game_view.tetris),
 
     url(r'^cinema$', cinema_view.get_cinema),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # for media directory
