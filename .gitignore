@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-**/lib/*js*
+#lib/
 lib64/
 parts/
 sdist/
@@ -105,4 +105,5 @@ db.sqlite3
 .tern-project
 node_modules/
 storage/
-media/
+**/js/lib/*js*
+media/**
