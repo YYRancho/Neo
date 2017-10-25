@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+**/lib/*js*
 lib64/
 parts/
 sdist/
@@ -101,7 +101,7 @@ ENV/
 \.gitignore~
 venv-neo/
 db.sqlite3
-migrations/
+**/migrations/[0-9]*.py
 .tern-project
 node_modules/
 storage/
