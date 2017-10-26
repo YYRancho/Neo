@@ -1,0 +1,4 @@
+# This is the video file directory for cinema
+# It should be empty during development
+*
+!.gitignore

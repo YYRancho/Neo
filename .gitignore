@@ -104,4 +104,3 @@ db.sqlite3
 **/migrations/[0-9]*.py
 .tern-project
 node_modules/
-storage/
