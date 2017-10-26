@@ -1,3 +1,5 @@
+'use strict';
+
 // hide the hr while it is below the subtransparent navigation bar
 $(window).scroll(function() {
     let hrs = $('hr')

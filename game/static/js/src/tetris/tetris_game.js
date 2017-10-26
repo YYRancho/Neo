@@ -1,3 +1,5 @@
+'use strict';
+
 // ========== tetris ==========
 // initialize
 // the first and last values of the array are used to judge the state instead of display bricks
@@ -262,7 +264,7 @@ function rotate() {
 
 function eliminate() {
     // calculate the lines to eliminate
-    rows_to_eliminate = []
+    let rows_to_eliminate = []
     for (let i = ROW_NUMBER - 2; i > 0; i--) {
         let flag = 1
         for (let j = 1; j < COL_NUMBER - 1; j++) {

@@ -1,3 +1,5 @@
+'use strict';
+
 // make the catelog fixed when the position is below the header
 $(window).scroll(function() {
     let sidebar = $('div.sidebar')

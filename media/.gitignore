@@ -1,0 +1,4 @@
+# This is the media file directory for deployment
+# It should be empty during development
+*
+!.gitignore

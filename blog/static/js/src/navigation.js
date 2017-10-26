@@ -1,3 +1,5 @@
+'use strict';
+
 // switch the visibility of the navigation bar
 let before_scrolltop = $(window).scrollTop()
 $(window).scroll(function() {

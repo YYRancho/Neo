@@ -1,3 +1,5 @@
+'use strict';
+
 // Rewrite some functions
 
 // limit_height is cited in chatroom_message.js

@@ -105,5 +105,3 @@ db.sqlite3
 .tern-project
 node_modules/
 storage/
-**/js/lib/*js*
-media/**

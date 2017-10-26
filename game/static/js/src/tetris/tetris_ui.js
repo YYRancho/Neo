@@ -1,3 +1,5 @@
+'use strict';
+
 // ========== switch the color and theme in transition ==========
 let switcher = $('div.switcher')
 let background = $('body, div.stage')
