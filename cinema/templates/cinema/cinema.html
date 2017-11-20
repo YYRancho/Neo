@@ -13,14 +13,36 @@
 </head>
 
 <body>
-    <video src="/static/storage/eason-chan.mp4" width="500px" controls="controls">
-        Your browser does not support HTML5!
-    </video>
+    <header>
+        <div class="searchbox container">
+            <img class="search-img" height="100%" src="/static/images/search-blue.png" />
+            <form method="post">
+                {% csrf_token %}
+                <input placeholder="Search as a real hacker" type="text" class="search-keywords" name="search_keywords" required />
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <div class="showroom container">
+            <div class="repo">
+                <img class="poster-hover" src="/static/images/play-red.png" />
+                <img class="poster" src="/static/storage/Flipped/Flipped.webp" onclick='window.open("/static/storage/Flipped/Flipped.2010.720p.mp4")'/>
+                <a href="https://movie.douban.com/subject/3319755/" target="_blank" class="title">Flipped / 怦然心动(2010)</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-text">
+            You are my Hello World.
+        </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
 
-    <script src="/static/js/lib/player.js"></script>
+    <script src="/static/js/lib/cinema.js"></script>
 </body>
 
 </html>

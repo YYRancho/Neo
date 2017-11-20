@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/static/fonts/Ubuntu/Ubuntu-R-webfont.woff') format('woff'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.ttf') format('truetype'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.svg') format('svg'),
+    url('/static/fonts/Ubuntu/Ubuntu-R-webfont.eot') format('embedded-opentype'); /* IE9 */
+}
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+html, body {
+    height: 100%;
+    font-size: 16px;
+    font-family: Ubuntu;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    width: 70%;
+}
+
+
+header, main, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ===== header ===== */
+header {
+    flex: 0 0 auto;
+    height: 5rem;
+    background-color: #27313c;
+    justify-content: center;
+}
+.searchbox {
+    height: 2rem;
+    background-color: #FEFEFE;
+    border-radius: 1000px;
+    box-shadow: 0px 3px 8px #607D8B;
+    display: flex;
+    flex-direction: row;
+}
+.search-img {
+    flex: 0 0 auto;
+}
+form {
+    flex: 1 1 auto;
+    height: 100%;
+}
+.search-keywords {
+    height: 100%;
+    width: 100%;
+    outline: 0;
+    background: transparent;
+    font-size: 1rem;
+}
+
+/* ===== main ===== */
+main {
+    flex: 1 0 auto;
+    background-color: #EFEFEF;
+}
+.showroom {
+    padding: 1rem 0;
+    font-size: 0; /* avoid space created by inline-block */
+}
+.repo {
+    font-size: 1rem;
+    display: inline-block;
+    overflow-y: hidden;
+    height: 300px;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+@media (max-width: 960px) {
+    .repo {
+        width: 33.3%;
+    }
+}
+@media (max-width: 480px) {
+    .repo {
+        width: 50%;
+    }
+}
+.poster, .poster-hover {
+    height: calc(300px - 5rem);
+}
+.poster {
+    position: relative; /* just make z-index valid */
+    z-index: 2;
+    cursor: pointer;
+}
+.poster-hover {
+    position: absolute;
+    top: calc((300px - 5rem)/2 - 25px);
+    left: 0;
+    height: 50px;
+}
+.poster:hover {
+    opacity: 0.2;
+}
+.title {
+    display: block;
+    height: 5rem;
+    overflow-y: auto;
+    text-decoration: none;
+}
+.title {
+    cursor: default;
+    color: rgb(64, 64, 64);
+}
+.title:visited {
+    color: rgb(64, 64, 64);
+}
+.title:hover {
+    color: #0085a1;
+}
+
+
+
+/* ===== footer ===== */
+footer {
+    flex: 0 0 auto;
+    height: 5rem;
+    background-color: #292c2f;
+}
+.footer-text {
+    /*color: #fff;*/
+}
