@@ -43,4 +43,5 @@ urlpatterns = [
     url(r'^game/tetris$', game_view.tetris),
 
     url(r'^cinema$', cinema_view.get_cinema),
+    url(r'^cinema_api/get_repo$', cinema_view.get_repo),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # for media directory
