@@ -16,9 +16,10 @@ for repo_name in os.listdir('.'):
 
                 headers = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/47.0.2526.106 Chrome/47.0.2526.106 Safari/537.36'}
                 res = requests.get('https://www.douban.com/search?q=' + repo_name, headers=headers)
-                repo['douban_link'] = re.findall(r'<div class="title">[\s\S]*?<a href="(http.*?)"', res.content)[0]
+                raw_douban_link = re.findall(r'<div class="title">[\s\S]*?<a href="(http.*?)"', res.content)[0]
 
-                res = requests.get(repo['douban_link'], headers=headers)
+                res = requests.get(raw_douban_link, headers=headers)
+                repo['douban_link'] = res.url # get the redirected link
                 repo['name'] = ' '.join(re.findall('h1[\s\S]*?<span.*?>(.*?)</span>[\s\S]*?<span class="year">(.*?)</span>', res.text)[0])
 
                 poster_url = re.findall(r'h1[\s\S]*?<img src="(http.*?)"', res.content)[0]
