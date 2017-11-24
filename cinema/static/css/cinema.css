@@ -22,6 +22,11 @@ body {
 .container {
     width: 70%;
 }
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+}
 
 
 header, main, footer {
@@ -75,11 +80,16 @@ main {
     display: inline-block;
     overflow-y: hidden;
     height: 300px;
-    width: 25%;
+    width: 20%;
     text-align: center;
     position: relative;
 }
-@media (max-width: 960px) {
+@media (max-width: 1400px) {
+    .repo {
+        width: 25%;
+    }
+}
+@media (max-width: 1024px) {
     .repo {
         width: 33.3%;
     }
@@ -90,7 +100,8 @@ main {
     }
 }
 .poster, .poster-hover {
-    height: calc(300px - 5rem);
+    /*height: calc(300px - 4rem);*/
+    height: 14.25rem;
 }
 .poster {
     position: relative; /* just make z-index valid */
@@ -99,27 +110,24 @@ main {
 }
 .poster-hover {
     position: absolute;
-    top: calc((300px - 5rem)/2 - 25px);
+    top: calc(14.25rem/2 - 25px);
     left: 0;
     height: 50px;
 }
 .poster:hover {
     opacity: 0.2;
 }
-.title {
+.name {
     display: block;
-    height: 5rem;
     overflow-y: auto;
     text-decoration: none;
-}
-.title {
     cursor: default;
     color: rgb(64, 64, 64);
 }
-.title:visited {
+.name:visited {
     color: rgb(64, 64, 64);
 }
-.title:hover {
+.name:hover {
     color: #0085a1;
 }
 

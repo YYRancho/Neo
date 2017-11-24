@@ -15,7 +15,7 @@ $.get('/cinema_api/get_repo')
             'src': repo['poster'],
             'onclick': `window.open("${repo['video']}")`,
         }).appendTo(repo_node)
-        $('<a>').addClass('title').attr({
+        $('<a>').addClass('name').attr({
             'href': repo['douban_link'],
             'target': '_blank',
         }).html(repo['name']).appendTo(repo_node)
