@@ -3,9 +3,8 @@
 function window_resize() {
     $('.poster-hover').css('left', $('.repo').width()/2 - 25 + 'px')
 }
-window_resize()
-
 $(window).resize(window_resize)
+
 $.get('/cinema_api/get_repo')
 .done(function(repo_list) {
     JSON.parse(repo_list).forEach(function(repo) {
@@ -24,4 +23,20 @@ $.get('/cinema_api/get_repo')
     })
 
     window_resize()
+})
+
+$('form').submit(function(event) {
+    event.preventDefault()
+
+    $('.repo').css('display', 'none')
+
+    let keywords = $('#search-keywords').val()
+    let keyword_list = keywords.split(/\s/)
+    keyword_list.forEach(function(keyword) {
+        $('.repo').each(function(index, ele) {
+            if (new RegExp(keyword).test(ele.children[2].text)) {
+                ele.style.display = 'inline-block'
+            }
+        })
+    })
 })

@@ -58,7 +58,7 @@ form {
     flex: 1 1 auto;
     height: 100%;
 }
-.search-keywords {
+form>input {
     height: 100%;
     width: 100%;
     outline: 0;
@@ -100,7 +100,6 @@ main {
     }
 }
 .poster, .poster-hover {
-    /*height: calc(300px - 4rem);*/
     height: 14.25rem;
 }
 .poster {

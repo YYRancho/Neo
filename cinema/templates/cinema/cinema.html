@@ -16,9 +16,8 @@
     <header>
         <div class="searchbox container">
             <img class="search-img" height="100%" src="/static/images/search-blue.png" />
-            <form method="post">
-                {% csrf_token %}
-                <input placeholder="Search as a real hacker" type="text" class="search-keywords" name="search_keywords" required />
+            <form>
+                <input placeholder="Search as a real hacker" type="text" id="search-keywords" name="search_keywords" required />
             </form>
         </div>
     </header>
