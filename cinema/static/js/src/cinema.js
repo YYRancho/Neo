@@ -25,16 +25,14 @@ $.get('/cinema_api/get_repo')
     window_resize()
 })
 
-$('form').submit(function(event) {
-    event.preventDefault()
-
+$('input').on('input', function() {
     $('.repo').css('display', 'none')
 
     let keywords = $('#search-keywords').val()
     let keyword_list = keywords.split(/\s/)
     keyword_list.forEach(function(keyword) {
         $('.repo').each(function(index, ele) {
-            if (new RegExp(keyword).test(ele.children[2].text)) {
+            if (new RegExp(keyword, 'i').test(ele.children[2].text)) {
                 ele.style.display = 'inline-block'
             }
         })
