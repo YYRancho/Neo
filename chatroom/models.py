@@ -19,6 +19,6 @@ class Message(models.Model):
     text = models.CharField(max_length=1000)
 
     def __unicode__(self):
-        if is_file:
+        if self.is_file:
             return '%s %s(%s): [File]%s' % (self.time, self.sender, self.sender_ip, self.text)
         return '%s %s(%s): %s' % (self.time, self.sender, self.sender_ip, self.text)
