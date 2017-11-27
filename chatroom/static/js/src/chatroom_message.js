@@ -39,7 +39,7 @@ function get_messages() {
         method: 'GET',
         dataType: 'json',
         data: {last_message_time: $('.message-wrapper').slice(-1)[0].id},
-        timeout: 60000, // long polling
+        timeout: 30000, // long polling
     })
     .done(function(messages) {
         console.log('get_messages SUCCESS');

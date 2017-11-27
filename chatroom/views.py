@@ -27,7 +27,7 @@ def get_my_ip(request):
 def get_messages(request):
     start_time = datetime.datetime.now() # prevent long polling occupying too much resource
     message_list = []
-    while len(message_list) == 0 and (datetime.datetime.now()-start_time).seconds < 65:
+    while len(message_list) == 0 and (datetime.datetime.now()-start_time).seconds < 35:
         last_message_time = request.GET.get('last_message_time')
         messages = Message.objects.raw('SELECT id, sender, sender_ip, time, text FROM chatroom_message WHERE time>"%s"' % last_message_time)
         message_list = [{"time": message.time.strftime('%Y-%m-%d %H:%M:%S.%f'), "sender": message.sender, "sender_ip": message.sender_ip, "is_file": message.is_file, "text": message.text} for message in messages]
