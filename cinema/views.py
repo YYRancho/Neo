@@ -31,4 +31,4 @@ def get_repo(request):
                     repo = json.loads(f.read())
                 repo_list.append(repo)
 
-    return HttpResponse(json.dumps(repo_list))
+    return HttpResponse(json.dumps({'repo_list': repo_list}))

@@ -62,6 +62,7 @@ input {
     font-size: 1rem;
 }
 
+
 /* ===== main ===== */
 main {
     flex: 1 0 auto;
@@ -103,15 +104,16 @@ main {
     position: relative; /* just make z-index valid */
     z-index: 2;
     cursor: pointer;
+    transition: opacity 0.35s;
+}
+.poster:hover {
+    opacity: 0.2;
 }
 .poster-hover {
     position: absolute;
     top: calc(14.25rem/2 - 25px);
     left: 0;
     height: 50px;
-}
-.poster:hover {
-    opacity: 0.2;
 }
 .name {
     display: block;
@@ -127,6 +129,37 @@ main {
     color: #0085a1;
 }
 
+.episode-wrapper {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    max-width: 75%;
+    max-height: 60%;
+    overflow-y: auto;
+    /*border-top: 2px solid #9FB6CD;
+    border-bottom: 2px solid #9FB6CD;*/
+    text-align: center;
+}
+.episode {
+    display: block;
+    height: 1.5rem;
+    margin: 1rem 0;
+    padding: 0 1.5rem;
+    border-radius: 1000px;
+    text-decoration: none;
+    background: rgba(39, 49, 60, 0.5);
+    color: #fff;
+    /* omit long section */
+    white-space: nowrap; /* prevent wrap */
+    text-overflow: ellipsis; /* use ...(ellipsis) to replace omitted part*/
+    overflow: hidden; /* make ellipsis work */
+}
+.episode:hover {
+    box-shadow: 0px 3px 8px #27313c;
+    background: rgba(39, 49, 60, 0.8);
+}
 
 
 /* ===== footer ===== */
