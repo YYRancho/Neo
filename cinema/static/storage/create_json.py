@@ -20,8 +20,12 @@ for repo_name in os.listdir('.'):
                     video_list.append(file_name)
 
             if len(video_list) != 0:
-                video_list.sort()
-                repo['video'] = ['/static/storage/{}/{}'.format(repo_name, video) for video in video_list]
+
+                if len(video_list) == 1:
+                    repo['video'] = '/static/storage/{}/{}'.format(repo_name, video_list[0])
+                else:
+                    video_list.sort()
+                    repo['video'] = ['/static/storage/{}/{}'.format(repo_name, video) for video in video_list]
 
                 headers = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/47.0.2526.106 Chrome/47.0.2526.106 Safari/537.36'}
                 res = requests.get('https://www.douban.com/search?q=' + repo_name, headers=headers)
