@@ -7,3 +7,6 @@ from django.shortcuts import render
 
 def tetris(request):
     return render(request, 'game/tetris.html')
+
+def gluttonous_snake(request):
+    return render(request, 'game/gluttonous_snake.html')

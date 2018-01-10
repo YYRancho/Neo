@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^chatroom_api/get_users$', chatroom_view.get_users),
 
     url(r'^game/tetris$', game_view.tetris),
+    url(r'^game/gluttonous_snake$', game_view.gluttonous_snake),
 
     url(r'^cinema$', cinema_view.get_cinema),
     url(r'^cinema_api/get_repo$', cinema_view.get_repo),
