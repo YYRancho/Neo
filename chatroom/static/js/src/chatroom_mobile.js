@@ -26,15 +26,15 @@ function format_message(message) {
         content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a href="media/${message.text}">${message.text}</a></span></div></div>`
     } else {
         content_str += ` : <span class="message-text">${message.text}</span></div></div>`
+        // process url
+        let url_reg = /((https?:\/\/)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/g
+        content_str = content_str.replace(url_reg, '<a href="$1">$1</a>')
+        // make all links open in a new tab
+        content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
     }
-    // process format
+
     // process '\n'
     content_str = content_str.replace(/\n/g, '<br/>')
-    // process url
-    let url_reg = /((https?:\/\/)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/g
-    content_str = content_str.replace(url_reg, '<a href="$1">$1</a>')
-    // make all links open in a new tab
-    content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
 
     let time_str = ''
     time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0]}</div>`
