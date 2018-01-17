@@ -23,7 +23,7 @@ function format_message(message) {
     }
     // determine whether the new message is file uploading
     if (message.is_file) {
-        content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a href="static/upload/${message.text}">${message.text}</a></span></div></div>`
+        content_str += ` : <span class="message-text"><span class="mark">UPLOAD</span> <a href="media/${message.text}">${message.text}</a></span></div></div>`
     } else {
         content_str += ` : <span class="message-text">${message.text}</span></div></div>`
     }
@@ -31,8 +31,8 @@ function format_message(message) {
     // process '\n'
     content_str = content_str.replace(/\n/g, '<br/>')
     // process url
-    let url_reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-|:)+)/g
-    content_str = content_str.replace(url_reg, '<a href="$1$2">$1$2</a>')
+    let url_reg = /((https?:\/\/)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/g
+    content_str = content_str.replace(url_reg, '<a href="$1">$1</a>')
     // make all links open in a new tab
     content_str = content_str.replace(/<a(.*?)>/g, '<a target="_blank" $1>')
 
