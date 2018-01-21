@@ -9,24 +9,6 @@ a {
     text-decoration: none;
 }
 
-/*switcher*/
-div.switcher {
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-}
-div.switcher::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 38px;
-    height: 38px;
-    background: linear-gradient(to right bottom, transparent 40%, rgb(207,207,207) 47%, rgb(237,237,237) 60%, rgb(255,255,255) 85%, rgb(230,230,230));
-    box-shadow: 3px 3px 10px 1px rgba(0,0,0,.15);
-}
-
 
 div.animation-content {
     width: 100%;
