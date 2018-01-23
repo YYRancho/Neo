@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel chatroom/static/js/src -d chatroom/static/js/lib -s && babel cinema/static/js/src -d cinema/static/js/lib -s && babel blog/static/js/src -d blog/static/js/lib -s && babel game/static/js/src/tetris -d game/static/js/lib/tetris -s && babel game/static/js/src/gluttonous_snake -d game/static/js/lib/gluttonous_snake -s",
-    "watch": "babel game/static/js/src/gluttonous_snake -w -d game/static/js/lib/gluttonous_snake -s"
+    "watch": "babel game/static/js/src -w -d game/static/js/lib -s"
   },
   "author": "",
   "license": "ISC",
