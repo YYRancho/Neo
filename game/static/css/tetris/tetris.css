@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     margin: 0px 0px;
-    background-color: rgb(88, 154, 205);
+    background: linear-gradient(to bottom, rgba(0, 0, 255, 0.1), rgba(255, 0, 0, 0.1));
     font-family: "Ubuntu";
     /*font-family: Arial,”Helvetica Neue“,”Hiragino Sans GB”,Simsun,sans-self;;*/
 }
@@ -13,9 +13,6 @@ a {
 div.animation-content {
     width: 100%;
     height: 100%;
-}
-div.stage {
-    background-color: rgb(88, 154, 205);
 }
 
 /*tetris*/
