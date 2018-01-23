@@ -1,0 +1,4 @@
+# This is the compiled javascript file directory
+# For the convenience of code search during development it should be empty during development
+*
+!.gitignore
