@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load staticfiles %}
+
+    <link href="/static/css/switcher.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="switcher">
+        <a class="list-btn"></a>
+        <ul>
+            <li>
+                <a class="game-btn" href="/game/tetris"></a>
+            </li>
+            <li>
+                <a class="game-btn" href="/game/gluttonous_snake"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static "vendors/jquery-3.2.1/jquery-3.2.1.js"%}"></script>
+
+    <script src="/static/js/lib/switcher.js"></script>
+
+</body>
+
+</html>
