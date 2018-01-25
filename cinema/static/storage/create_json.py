@@ -8,7 +8,8 @@ for repo_name in os.listdir('.'):
     # repo_name is the directory name, not equal to repo['name']
     if os.path.isdir(repo_name):
         if '{}.json'.format(repo_name) in os.listdir('./' + repo_name):
-            print('{} skip!'.format(repo_name))
+            print('{} begins......'.format(repo_name))
+            print('{} done! \033[1;31m[Skip]\033[0m'.format(repo_name))
         else:
             print('{} begins......'.format(repo_name))
 
@@ -44,6 +45,6 @@ for repo_name in os.listdir('.'):
 
                 with open('./{}/{}.json'.format(repo_name, repo_name), 'w') as f:
                     json.dump(repo, f)
-                    print('{} done! [New]'.format(repo_name))
+                    print('{} done! \033[1;32m[New]\033[0m'.format(repo_name))
             else:
                 print('No mp4 found!')
