@@ -7,8 +7,8 @@ $('textarea').on('drop', function(event) {
 
     let files = event.originalEvent.dataTransfer.files
     for (let file of files) {
-        if (file.size > 200*1024*1024) { // judge whether file size > 200M
-            alert('The file size should not exceed 30M!')
+        if (file.size > 2048*1024*1024) { // judge whether file size > 2G
+            alert('The file size should not exceed 2G!')
             return
         }
 
