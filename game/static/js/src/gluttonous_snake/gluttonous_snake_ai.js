@@ -147,9 +147,9 @@ function bfs(snake_nodes, specific_node) {
     let queue = [snake_nodes[0]]
     let visited = []
     let parents = [] // record the parent node of each nodes
-    for (let i = 0; i < 32; i++) {
-        visited[i] = [...new Array(24)].map(x => false)
-        parents[i] = [...new Array(24)]
+    for (let i = 0; i < WIDTH/UNIT_LENGTH; i++) {
+        visited[i] = [...new Array(HEIGHT/UNIT_LENGTH)].map(x => false)
+        parents[i] = [...new Array(HEIGHT/UNIT_LENGTH)]
     }
 
     while (queue.length > 0) {
