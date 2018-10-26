@@ -64,7 +64,7 @@ function step() {
     } else {
         snake.nodes.pop()
     }
-    this.ctx.clearRect(0,0,WIDTH,HEIGHT)
+    ctx.clearRect(0,0,WIDTH,HEIGHT)
     snake.draw()
     food.draw()
 
