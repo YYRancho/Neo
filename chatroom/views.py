@@ -14,7 +14,7 @@ import time
 import user_agents
 
 def get_chatroom(request):
-    if request.META.has_key('HTTP_USER_AGENT'):
+    if 'HTTP_USER_AGENT' in request.META.keys():
         user_agent = user_agents.parse(request.META['HTTP_USER_AGENT'])
         if user_agent.is_mobile or user_agent.is_tablet:
             return render(request, 'chatroom/chatroom_mobile.html')
