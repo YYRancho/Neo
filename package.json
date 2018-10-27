@@ -1,27 +1,33 @@
 {
-  "name": "neo",
+  "name": "Neo",
   "version": "1.0.0",
-  "description": "A website for tech and fun, powered by [django](https://github.com/django/django)",
+  "description": "A website powered by [django](https://github.com/django/django)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel chatroom/static/js/src -d chatroom/static/js/lib -s && babel cinema/static/js/src -d cinema/static/js/lib -s && babel blog/static/js/src -d blog/static/js/lib -s && babel game/static/js/src -d game/static/js/lib -s",
-    "watch": "babel game/static/js/src -w -d game/static/js/lib -s"
+    "build": "babel chatroom/static/js/src -d chatroom/static/js/lib -s && babel cinema/static/js/src -d cinema/static/js/lib -s && babel blog/static/js/src -d blog/static/js/lib -s && babel game/static/js/src -d game/static/js/lib -s"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YYRancho/Neo.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^7.3.0"
+  "bugs": {
+    "url": "https://github.com/YYRancho/Neo/issues"
   },
+  "homepage": "https://github.com/YYRancho/Neo#readme",
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "presets": ["@babel/env"]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0"
   },
   "dependencies": {
-    "push.js": "^1.0.4"
+    "@babel/polyfill": "^7.0.0",
+    "push.js": "^1.0.9"
   }
 }
