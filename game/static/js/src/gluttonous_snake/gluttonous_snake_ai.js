@@ -3,9 +3,9 @@
 /*
 My method
 
-Stratege 1: use BFS algorithm to calculate the way to food. If the way exists, then evaluate the safety of the path. If there is a way to the tail after the snake follow the path, the path is considered safe.
+Strategy 1: use BFS algorithm to calculate the way to food. If the way exists, then evaluate the safety of the path. If there is a way to the tail after the snake follow the path, the path is considered safe.
 
-Stratage 2: Choose a neighbor node of the head as the next node. Make sure there is a way to the tail if the snake moves to the neighbor node. On this basis, select the neighbor farthest to the tail, which tend to leave more space and choices for the head.
+Strategy 2: Choose a neighbor node of the head as the next node. Make sure there is a way to the tail if the snake moves to the neighbor node. On this basis, select the neighbor farthest to the tail, which tend to leave more space and choices for the head.
 
 Principle: Method 1 is our first choice. When no safe way to the food can be found, we perform Strategy 2. Because Strategy 1 has been executed from the very beginning, an appropriate neighbor can always be found in Strategy 2. Notice the snake may fall into endless loop because there is actually no solution in the end.
 */
