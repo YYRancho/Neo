@@ -49,7 +49,7 @@ def upload_my_file(request):
     user_name = request.POST['user_name']
     ip = request.POST['ip']
     file_name = request.FILES['file'].name
-    with open('media/'+file_name,'w') as f:
+    with open('media/'+file_name,'wb') as f:
         for chunk in request.FILES['file'].chunks(chunk_size = 10*1024*1024):
             f.write(chunk)
     Message.objects.create(time=datetime.datetime.now(),sender=user_name,sender_ip=ip,is_file=True,text=file_name)
