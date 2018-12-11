@@ -22,7 +22,10 @@ def get_chatroom(request):
     return render(request, 'chatroom/chatroom.html')
 
 def get_my_ip(request):
-    return HttpResponse(request.META['REMOTE_ADDR'])
+    if 'HTTP_X_FORWARDED_FOR' in request.META.keys():
+        return HttpResponse(request.META['HTTP_X_FORWARDED_FOR'])
+    else:
+        return HttpResponse(request.META['REMOTE_ADDR'])
 
 def get_messages(request):
     start_time = datetime.datetime.now() # prevent long polling occupying too much resource
