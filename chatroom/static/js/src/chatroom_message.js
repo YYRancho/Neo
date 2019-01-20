@@ -88,7 +88,7 @@ function format_message(message) {
     // determine whether the new message is sent by the user self
     if ($('#name-editor').text() === message.sender && $('#my-ip').text() === message.sender_ip) {
         time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0].split(' ')[1]}`
-        time_str += '&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        time_str += '&nbsp;'.repeat(12)
         time_str += `<span class="message-arrow">➢➣➤</span></div>`
     } else {
         time_str += `<div id="${message.time}" class="message-wrapper"><div class="message-time">${message.time.split('.')[0]}</div>`
